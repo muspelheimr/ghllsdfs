@@ -1,0 +1,305 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="GlueTooltip.lua"/>
+	<Frame name="GlueTooltipTemplate" frameStrata="TOOLTIP" hidden="true" clampedToScreen="true" virtual="true">
+		<Size>
+			<AbsDimension x="50" y="50"/>
+		</Size>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="16"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="16"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="3" right="3" top="3" bottom="3"/>
+			</BackgroundInsets>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTextLeft1" inherits="GlueTooltipHeaderText" justifyH="LEFT" hidden="true" parentKey="TextLeft1">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="10" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight1" inherits="GlueTooltipHeaderText" justifyH="RIGHT" hidden="true" parentKey="TextRight1">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft1" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="40" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft2" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft2">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft1" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight2" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight2">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft2" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="40" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft3" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft3">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft2" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight3" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight3">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft3" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="40" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft4" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft4">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft3" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight4" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight4">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft4" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="40" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft5" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft5">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft4" relativePoint="BOTTOMLEFT" x="0" y="-2"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight5" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight5">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft5" relativePoint="LEFT" x="40" y="0"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft6" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft6">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft5" relativePoint="BOTTOMLEFT" x="0" y="-2"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight6" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight6">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft6" relativePoint="LEFT" x="40" y="0"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextLeft7" inherits="GlueTooltipText" justifyH="LEFT" hidden="true" parentKey="TextLeft7">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTextLeft6" relativePoint="BOTTOMLEFT" x="0" y="-2"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTextRight7" inherits="GlueTooltipText" justifyH="RIGHT" hidden="true" parentKey="TextRight7">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTextLeft7" relativePoint="LEFT" x="40" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				GlueTooltip_OnLoad(self);
+			</OnLoad>
+			<OnHide function="GlueTooltip_OnHide"/>
+			<OnUpdate function="GlueTooltip_OnUpdate"/>
+		</Scripts>
+	</Frame>
+	<Frame name="GlueTooltip" frameStrata="TOOLTIP" hidden="true" parent="GlueParent" inherits="GlueTooltipTemplate">
+		<Anchors>
+			<Anchor point="BOTTOMLEFT">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+	</Frame>
+
+	<Frame name="CharacterCreateFrameAbilityTemplate" inherits="ResizeLayoutFrame" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" parentKey="Icon">
+					<Size x ="28" y="28"/>
+					<Anchors>
+						<Anchor point="LEFT" x="1" y="0"/>
+					</Anchors>
+				</Texture>
+				<FontString parentKey="Text" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Size x ="240" y="0"/>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentIcon" relativePoint="RIGHT" x="6" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture parentKey="IconOverlay">
+					<Size x ="28" y="28"/>
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="$parentIcon"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, ResizeLayoutMixin, CharacterCreateFrameAbilityMixin)
+				self:OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="CharacterCreate_AbilityList" inherits="VerticalLayoutFrame" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentLabel" parentKey="Label" font="Shared_GameFontNormal">
+					<Color r="1.0" g="1.0" b="1.0"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, LayoutMixin, VerticalLayoutMixin, CharacterCreateAbilityListMixin)
+
+				self.spacing = 10
+				self.fixedWidth = 280
+
+				self.Label.layoutIndex = 0
+				self.Label.bottomPadding = 0
+
+				self:OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Frame name="GlueTooltipClassTemplate" frameStrata="TOOLTIP" hidden="true" clampedToScreen="true" virtual="true">
+		<Size x="300" y="300"/>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<Color r="0" g="0" b="0"/>
+			<EdgeSize val="16"/>
+			<TileSize val="16"/>
+			<BackgroundInsets left="3" right="3" top="3" bottom="3"/>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentHeader" parentKey="Header" inherits="GlueFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="10" y="-10"/>
+					</Anchors>
+					<Color r="1" g="1" b="1"/>
+				</FontString>
+
+				<FontString name="$parentDescription" parentKey="Description" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentHeader" relativePoint="BOTTOMLEFT" x="0" y="-10"/>
+					</Anchors>
+					<Color r="1" g="0.82" b="0"/>
+				</FontString>
+
+				<FontString name="$parentRole" parentKey="Role" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentDescription" relativePoint="BOTTOMLEFT" x="0" y="-10"/>
+					</Anchors>
+					<Color r="1" g="0.82" b="0"/>
+				</FontString>
+
+				<FontString name="$parentWarning" parentKey="Warning" inherits="Shared_GameFontNormal" justifyH="LEFT" hidden="true">
+					<Color r="1" g="0" b="0"/>
+				</FontString>
+
+				<FontString name="$parentClickInfo" parentKey="ClickInfo" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Color r="0.61" g="0.61" b="0.61"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentAbilityList" parentKey="AbilityList" inherits="CharacterCreate_AbilityList" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentRole" relativePoint="BOTTOMLEFT" x="0" y="-15"/>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self.AbilityList.Label:SetText(CLASS_TRAITS_TOOLTIP)
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Frame name="GlueTooltipRaceTemplate" frameStrata="TOOLTIP" hidden="true" clampedToScreen="true" virtual="true">
+		<Size x="300" y="300"/>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<Color r="0" g="0" b="0"/>
+			<EdgeSize val="16"/>
+			<TileSize val="16"/>
+			<BackgroundInsets left="3" right="3" top="3" bottom="3"/>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentHeader" parentKey="Header" inherits="GlueFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="10" y="-10"/>
+					</Anchors>
+					<Color r="1" g="1" b="1"/>
+				</FontString>
+				<FontString name="$parentDescription" parentKey="Description" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentHeader" relativePoint="BOTTOMLEFT" x="0" y="-10"/>
+					</Anchors>
+					<Color r="1" g="0.82" b="0"/>
+				</FontString>
+
+				<FontString name="$parentWarning" parentKey="Warning" inherits="Shared_GameFontNormal" justifyH="LEFT" hidden="true">
+					<Color r="1" g="0" b="0"/>
+				</FontString>
+
+				<FontString name="$parentClickInfo" parentKey="ClickInfo" inherits="Shared_GameFontNormal" justifyH="LEFT">
+					<Color r="0.61" g="0.61" b="0.61"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentPassiveList" parentKey="PassiveList" inherits="CharacterCreate_AbilityList" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentDescription" relativePoint="BOTTOMLEFT" x="0" y="-15"/>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentAbilityList" parentKey="AbilityList" inherits="CharacterCreate_AbilityList" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentPassiveList" relativePoint="BOTTOMLEFT" x="0" y="-15"/>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self.PassiveList.Label:SetText(RACIAL_TRAITS_PASSIVE_TOOLTIP)
+				self.AbilityList.Label:SetText(RACIAL_TRAITS_ACTIVE_TOOLTIP)
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="GlueRaceTooltip" frameStrata="TOOLTIP" hidden="true" parent="GlueParent" inherits="GlueTooltipRaceTemplate"/>
+	<Frame name="GlueClassTooltip" frameStrata="TOOLTIP" hidden="true" parent="GlueParent" inherits="GlueTooltipClassTemplate"/>
+</Ui>

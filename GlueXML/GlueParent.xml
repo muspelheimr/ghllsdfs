@@ -1,0 +1,45 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="GlueParent.lua"/>
+	<Frame name="GlueParent" setAllPoints="true">
+		<Frames>
+			<Frame name="$parentBlockingFrame" parentKey="BlockingFrame" setAllPoints="true" frameStrata="HIGH" frameLevel="100" hidden="true" enableMouse="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture setAllPoints="true">
+							<Color r="0" g="0" b="0" a="0.75"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnKeyDown function="GlueParentBlockingFrame_OnKeyDown"/>
+					<OnMouseWheel function="nop"/>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad function="GlueParent_OnLoad"/>
+			<OnEvent function="GlueParent_OnEvent"/>
+			<OnUpdate function="GlueFrameFadeUpdate"/>
+		</Scripts>
+	</Frame>
+
+	<ModelFFX name="GlueFFXModel" parent="GlueParent" setAllPoints="true">
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentBackground" parentKey="Background" alpha="0.2" file="Interface\Custom\Glue\Vignette-256">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-14" y="10" />
+						<Anchor point="BOTTOMRIGHT" x="14" y="-10" />
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, ModelFFXMixin)
+				self:OnLoad()
+			</OnLoad>
+		</Scripts>
+	</ModelFFX>
+</Ui>

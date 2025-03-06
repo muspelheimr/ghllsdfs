@@ -1,0 +1,549 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="RealmList.lua"/>
+
+	<Button name="RealmListButtonTemplate" inherits="GlueDark_ButtonTemplate" hidden="true" virtual="true">
+		<Size x="200" y="32"/>
+		<Scripts>
+			<OnClick function="RealmListRealmSelect_OnClick"/>
+		</Scripts>
+	</Button>
+	<Frame name="RealmListMiniMainSelectTemplate" alpha="0.7" hidden="true" virtual="true">
+		<Size x="180" y="60"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="BG">
+					<Color r="0.6" g="0.5" b="0.3" a="0.3"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture parentKey="BORDER">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="1" y="-1"/>
+						<Anchor point="BOTTOMRIGHT" x="-1" y="1"/>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.7"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentRealmName" parentKey="RealmName" font="Interface\CustomFonts\OpenSans-Bold.ttf">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="-8" />
+					</Anchors>
+					<FontHeight val="14"/>
+					<Color r="1" g="0.968" b="0.898"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentRealmButton" text="CHOOSE" parentKey="RealmButton" frameStrata="DIALOG" toplevel="true" inherits="GlueDark_ButtonTemplate">
+				<Size x="132" y="26"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="8" />
+				</Anchors>
+				<Scripts>
+					<OnClick function="RealmListRealmSelect_OnClick"/>
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>
+	<Frame name="RealmListProxyMainSelectTemplate" alpha="0.5" hidden="true" virtual="true">
+		<Size x="150" y="34"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="BG">
+					<Color r="0.6" g="0.5" b="0.3" a="0.3"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture parentKey="BORDER">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="1" y="-1"/>
+						<Anchor point="BOTTOMRIGHT" x="-1" y="1"/>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="1"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentProxyButton" text="PROXY" parentKey="ProxyButton" frameStrata="DIALOG" toplevel="true" inherits="GlueDark_ButtonTemplate">
+				<Size x="132" y="26"/>
+				<Anchors>
+					<Anchor point="CENTER"/>
+				</Anchors>
+				<Scripts>
+					<OnClick function="RealmListRealmSelect_OnClick"/>
+					<OnEnter>
+						GlueTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GlueTooltip:SetText(PROXY_DESCRIPTION, 1.0, 1.0, 1.0, 1.0, 1)
+						GlueTooltip:Show()
+					</OnEnter>
+					<OnLeave>
+						GlueTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>
+	<Button name="RealmEntrySelectButtonTemplate" inherits="GlueDark_ButtonTemplate" motionScriptsWhileDisabled="true" virtual="true">
+		<Scripts>
+			<OnLoad>
+				Mixin(self, GlueDark_ButtonMixin, RealmEntrySelectButtonMixin)
+				self:OnLoadStyle(true)
+				self:OnLoad()
+			</OnLoad>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Frame name="RealmListCardTemplate" enableMouse="true" virtual="true">
+		<Size x="250" y="400"/>
+
+		<Attributes>
+			<Attribute name="cardName" value="" type="string"/>
+		</Attributes>
+
+		<Frames>
+			<Frame name="$parentBackgroundFrame" parentKey="BackgroundFrame" setAllPoints="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background">
+							<Color r="0" g="0" b="0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="$parentBorderFrame" parentKey="BorderFrame" setAllPoints="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBorder" parentKey="Border" alphaMode="ADD" hidden="true"/>
+					</Layer>
+					<Layer level="BORDER">
+						<Texture name="$parentTop" parentKey="Top" hidden="true">
+							<Size x="0" y="1"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="0" y="0"/>
+								<Anchor point="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</Texture>
+						<Texture name="$parentBottom" parentKey="Bottom" hidden="true">
+							<Size x="0" y="1"/>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</Texture>
+						<Texture name="$parentLeft" parentKey="Left" hidden="true">
+							<Size x="1" y="0"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTop" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMLEFT" relativeTo="$parentBottom" relativePoint="TOPLEFT" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</Texture>
+						<Texture name="$parentRight" parentKey="Right" hidden="true">
+							<Size x="1" y="0"/>
+							<Anchors>
+								<Anchor point="TOPRIGHT" relativeTo="$parentTop" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottom" relativePoint="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="$parentLogoFrame" parentKey="LogoFrame">
+				<Size x="180" y="108"/>
+				<Anchors>
+					<Anchor point="TOP" x="0" y="-14"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentLogo" parentKey="Logo" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="$parentContentFrame" parentKey="ContentFrame">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="0" y="-130"/>
+					<Anchor point="BOTTOMRIGHT" x="0" y="40"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="$parentRealmName" parentKey="RealmName" font="Interface\CustomFonts\OpenSans-Bold.ttf">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="30" y="0"/>
+							</Anchors>
+							<FontHeight val="17"/>
+							<Color r="1" g="0.968" b="0.898"/>
+						</FontString>
+						<FontString name="$parentRealmDescription" spacing="2" justifyV="TOP" justifyH="LEFT" parentKey="RealmDescription" font="Interface\CustomFonts\OpenSans-Semibold.ttf">
+							<Size x="208" y="164"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="22" y="-26"/>
+							</Anchors>
+							<FontHeight val="9"/>
+							<Color r="0.921" g="0.870" b="0.760"/>
+						</FontString>
+						<FontString name="$parentRealmRateLabel" justifyV="TOP" justifyH="LEFT" parentKey="RealmRateLabel" font="Interface\CustomFonts\futurademic.ttf" text="REALM_CARD_RATE">
+							<Size x="60" y="20"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentRealmDescription" relativePoint="BOTTOMLEFT" x="8" y="-2"/>
+							</Anchors>
+							<FontHeight val="8"/>
+							<Color r="0.984" g="0.819" b="0.576"/>
+						</FontString>
+						<FontString name="$parentRealmRate" justifyV="TOP" justifyH="LEFT" parentKey="RealmRate" font="Interface\CustomFonts\futurademic.ttf">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentRealmRateLabel" relativePoint="TOPRIGHT" x="14" y="2"/>
+							</Anchors>
+							<FontHeight val="10"/>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+						<FontString name="$parentRealmPVPStatusLabel" justifyV="TOP" justifyH="LEFT" parentKey="RealmPVPStatusLabel" font="Interface\CustomFonts\futurademic.ttf" text="REALM_CARD_PVP_MODE">
+							<Size x="60" y="20"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentRealmRateLabel" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+							</Anchors>
+							<FontHeight val="8"/>
+							<Color r="0.984" g="0.819" b="0.576"/>
+						</FontString>
+						<FontString name="$parentRealmPVPStatus" justifyV="TOP" justifyH="LEFT" parentKey="RealmPVPStatus" font="Interface\CustomFonts\futurademic.ttf">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentRealmPVPStatusLabel" relativePoint="TOPRIGHT" x="14" y="2"/>
+							</Anchors>
+							<FontHeight val="10"/>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="$parentOverlayFrame" parentKey="OverlayFrame" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="3" y="-3"/>
+					<Anchor point="BOTTOMRIGHT" x="-3" y="3"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentOverlay" parentKey="Overlay" alphaMode="ADD"/>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Frame name="$parentLabelFrame" parentKey="LabelFrame" hidden="true">
+				<Size x="0" y="120"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="3" y="-66"/>
+					<Anchor point="TOPRIGHT" x="-3" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background">
+							<Color r="1" g="0" b="0"/>
+						</Texture>
+					</Layer>
+					<Layer level="BORDER">
+						<FontString name="$parentText" inherits="GameFontNormal9" parentKey="Text">
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="-5"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<Button name="$parentEnterButton" parentKey="EnterButton" text="REALM_CARD_PLAY">
+				<Size x="120" y="23"/>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentContentFrame" relativePoint="BOTTOM" x="0" y="-2"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						RealmListRealmSelect_OnClick(self:GetParent())
+					</OnClick>
+				</Scripts>
+				<NormalTexture name="$parentNormalTexture" parentKey="NormalTexture"/>
+				<PushedTexture name="$parentPushedTexture" parentKey="PushedTexture"/>
+				<DisabledTexture name="$parentDisabledTexture" parentKey="DisabledTexture"/>
+				<HighlightTexture name="$parentHighlightTexture" parentKey="HighlightTexture" alpha="0.1" alphaMode="ADD"/>
+				<ButtonText name="$parentText" font="Interface\CustomFonts\OpenSans-Semibold.ttf" justifyH="LEFT" parentKey="text">
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0"/>
+					</Anchors>
+					<FontHeight val="11"/>
+					<Color r="1" g="1" b="1"/>
+				</ButtonText>
+			</Button>
+
+			<Frame name="$parentProxyFrame" parentKey="ProxyFrame" inherits="RealmListProxyMainSelectTemplate" hidden="true">
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" x="0" y="-10"/>
+				</Anchors>
+			</Frame>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>
+				Mixin(self, RealmListCardTemplateMixin)
+				self:OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Frame name="RealmProxyDialog" parent="GlueParent" frameStrata="FULLSCREEN" setAllPoints="true" enableMouse="true" enableKeyboard="true" hidden="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="Background" setAllPoints="true">
+					<Color r="0" g="0" b="0" a="0.75"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentContainer" frameStrata="FULLSCREEN_DIALOG" parentKey="Container">
+				<Size x="250" y="0"/>
+				<Anchors>
+					<Anchor point="CENTER" x="0" y="35"/>
+				</Anchors>
+				<Attributes>
+					<Attribute name="layoutType" value="GlueDarkTemplate" type="string"/>
+					<Attribute name="layoutParentFrameLevel" value="true" type="boolean"/>
+				</Attributes>
+
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background" inherits="GlueDark-Backdrops-Background-Main"/>
+					</Layer>
+					<Layer level="BORDER">
+						<Texture name="$parentTopShadow" parentKey="TopShadow" inherits="GlueDark-Backdrops-Shadow-Top2">
+							<Size x="0" y="182"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="0" y="0"/>
+								<Anchor point="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="ARTWORK">
+						<FontString name="$parentTitle" parentKey="Title" inherits="GlueDark_Font_Shadow_16" justifyH="CENTER" justifyV="TOP" text="WORLD_PROXY_LOCATION_HEADER">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-16"/>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentText" parentKey="Text" inherits="GlueDark_Font_Shadow_15" text="WORLD_PROXY_LOCATION_TEXT" hidden="true">
+							<Size x="400" y="0"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-16"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+
+				<Frames>
+					<Frame name="$parentNineSlice" parentKey="NineSlice" inherits="NineSlicePanelTemplate"/>
+
+					<Button name="$parentOKButton" parentKey="OKButton" inherits="GlueDark_ButtonTemplate" text="VIRTUAL_KEYPAD_OKAY">
+						<Size x="140" y="32"/>
+						<Anchors>
+							<Anchor point="BOTTOM" x="0" y="20"/>
+						</Anchors>
+
+						<Scripts>
+							<OnClick>
+								self:GetParent():GetParent():NextStep()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentCancelButton" parentKey="CancelButton" inherits="GlueDark_ButtonTemplate" text="CANCEL">
+						<Size x="140" y="32"/>
+						<Anchors>
+							<Anchor point="BOTTOM" x="0" y="20"/>
+						</Anchors>
+
+						<Scripts>
+							<OnClick>
+								self:GetParent():GetParent():Cancel()
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+
+				<Scripts>
+					<OnLoad>
+						self.TopShadow:SetVertexColor(0, 0, 0, 0.4)
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<Frame name="$parentHelpHightlight" parentKey="HelpHightlight" frameStrata="FULLSCREEN" setAllPoints="true" hidden="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentLeft" parentKey="Left">
+							<Color r="0" g="0" b="0" a="0.75"/>
+						</Texture>
+						<Texture name="$parentRight" parentKey="Right">
+							<Color r="0" g="0" b="0" a="0.75"/>
+						</Texture>
+						<Texture name="$parentTop" parentKey="Top">
+							<Color r="0" g="0" b="0" a="0.75"/>
+						</Texture>
+						<Texture name="$parentBottom" parentKey="Bottom">
+							<Color r="0" g="0" b="0" a="0.75"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, RealmProxyDialogMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+			<OnKeyDown>
+				self:OnKeyDown(key)
+			</OnKeyDown>
+			<OnMouseWheel function="nop"/>
+		</Scripts>
+	</Frame>
+
+	<Frame name="RealmList" toplevel="true" parent="GlueParent" setAllPoints="true" enableMouse="true" enableKeyboard="true" frameStrata="DIALOG" hidden="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-1" y="1"/>
+						<Anchor point="BOTTOMRIGHT" x="1" y="-1"/>
+					</Anchors>
+					<Color a="0.9" r="0" g="0" b="0"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString parentKey="NoRealmText" inherits="GameFontNormalHugeOutline" justifyH="CENTER" text="LOADING_REALM_LIST" justifyV="TOP">
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0"/>
+					</Anchors>
+					<Color r="0.91" g="0.78" b="0.53"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentMainRealmCardHolder" parentKey="MainRealmCardHolder">
+				<Size x="250" y="400"/>
+				<Anchors>
+					<Anchor point="CENTER" x="0" y="0"/>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentSoulseekerRealmCard" parentKey="SoulseekerRealmCard" inherits="RealmListCardTemplate">
+				<Attributes>
+					<Attribute name="style" value="Soulseeker" type="string"/>
+				</Attributes>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentMainRealmCardHolder" x="0" y="0"/>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentScourgeRealmCard" parentKey="ScourgeRealmCard" inherits="RealmListCardTemplate">
+				<Attributes>
+					<Attribute name="style" value="Scourge" type="string"/>
+				</Attributes>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentSoulseekerRealmCard" relativePoint="RIGHT" x="20" y="0"/>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentSirusRealmCard" parentKey="SirusRealmCard" inherits="RealmListCardTemplate">
+				<Attributes>
+					<Attribute name="style" value="Sirus" type="string"/>
+				</Attributes>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentScourgeRealmCard" relativePoint="RIGHT" x="20" y="0"/>
+				</Anchors>
+			</Frame>
+
+			<Frame name="$parentMiniRealmCard1" inherits="RealmListMiniMainSelectTemplate"/>
+			<Frame name="$parentMiniRealmCard2" inherits="RealmListMiniMainSelectTemplate"/>
+			<Frame name="$parentMiniRealmCard3" inherits="RealmListMiniMainSelectTemplate"/>
+			<Frame name="$parentMiniRealmCard4" inherits="RealmListMiniMainSelectTemplate"/>
+
+			<Frame name="$parentEntryPoint" parentKey="EntryPoint" hidden="true">
+				<Size x="150" y="34"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="110"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBG" parentKey="BG" hidden="true">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="-5" y="5"/>
+								<Anchor point="BOTTOMRIGHT" x="5" y="-5"/>
+							</Anchors>
+							<Color r="1" g="1" b="0" a="0.3"/>
+						</Texture>
+					</Layer>
+					<Layer level="BORDER">
+						<Texture parentKey="HelpArrow" file="Interface\Store\Services" hidden="true">
+							<Size x="54" y="96"/>
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parentBG" relativePoint="TOP" x="0" y="60"/>
+							</Anchors>
+							<TexCoords left="0.00097656" right="0.01855469" top="0.13476563" bottom="0.16601563"/>
+						</Texture>
+					</Layer>
+					<Layer level="ARTWORK">
+						<FontString name="$parentHeader" parentKey="Header" inherits="GlueFontNormal" justifyH="CENTER" text="WORLD_PROXY_LOCATION">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="20"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, RealmEntryPointMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnEnter>
+						self:OnEnter()
+					</OnEnter>
+					<OnLeave>
+						self:OnLeave()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+
+			<Button name="$parentCancel" inherits="GlueDark_ButtonBoldTemplate" toplevel="true" text="CANCEL">
+				<Size x="200" y="36"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="35"/>
+				</Anchors>
+				<Scripts>
+					<OnClick function="RealmListCancel_OnClick"/>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad function="RealmList_OnLoad"/>
+			<OnShow function="RealmList_OnShow"/>
+			<OnHide function="RealmList_OnHide"/>
+			<OnEvent function="RealmList_OnEvent"/>
+			<OnKeyDown function="RealmList_OnKeyDown"/>
+		</Scripts>
+	</Frame>
+</Ui>

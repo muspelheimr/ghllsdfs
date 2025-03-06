@@ -1,0 +1,1604 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="GlueDarkTemplates.lua"/>
+
+	<Texture name="GlueDark-Backdrops-Background-Dropdown" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="181" y="181"/>
+		<TexCoords left="0.5009765625" right="0.7490234375" top="0.6708984375" bottom="0.9189453125"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Background-Main" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="363" y="363"/>
+		<TexCoords left="0.0009765625" right="0.4990234375" top="0.0009765625" bottom="0.4990234375"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Background-Scroll" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="363" y="363"/>
+		<TexCoords left="0.5009765625" right="0.9990234375" top="0.0009765625" bottom="0.4990234375"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Shadow-Bottom" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="363" y="142"/>
+		<TexCoords left="0.0009765625" right="0.4990234375" top="0.5009765625" bottom="0.6962890625"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Shadow-Top1" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="363" y="123"/>
+		<TexCoords left="0.0009765625" right="0.4990234375" top="0.6982421875" bottom="0.8671875"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Shadow-Top2" file="Interface/Custom/GlueDark/Backdrops" virtual="true">
+		<Size x="363" y="122"/>
+		<TexCoords left="0.5009765625" right="0.9990234375" top="0.5009765625" bottom="0.6689453125"/>
+	</Texture>
+
+	<Texture name="GlueDark-Backdrops-Dialog-Backdrop1" file="Interface/Custom/GlueDark/Backdrops2" virtual="true">
+		<Size x="728" y="267"/>
+		<TexCoords left="0" right="1" top="0" bottom="0.3662109375"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Dialog-Backdrop2" file="Interface/Custom/GlueDark/Backdrops2" virtual="true">
+		<Size x="728" y="188"/>
+		<TexCoords left="0" right="1" top="0.3662109375" bottom="0.6240234375"/>
+	</Texture>
+	<Texture name="GlueDark-Backdrops-Service-Actions" file="Interface/Custom/GlueDark/Backdrops2" virtual="true">
+		<Size x="574" y="144"/>
+		<TexCoords left="0" right="0.7880859375" top="0.6240234375" bottom="0.8212890625"/>
+	</Texture>
+
+	<Texture name="GlueDark-StrikeThrough" file="Interface/Custom/GlueDark/StrikeThrough" virtual="true">
+		<Size x="32" y="32"/>
+		<Color r="1" g="1" b="1" a="0.8"/>
+	</Texture>
+
+	<Texture name="GlueDark-Border-Dropdown-CornerBottomLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.30859375" right="0.314453125" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-CornerBottomRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.255859375" right="0.26171875" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-CornerTopLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.2470703125" right="0.2529296875" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-CornerTopRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.2998046875" right="0.3056640625" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-EdgeBottom" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.291015625" right="0.296875" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-EdgeLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.2822265625" right="0.2880859375" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-EdgeRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.2646484375" right="0.2705078125" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Dropdown-EdgeTop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="4" y="4"/>
+		<TexCoords left="0.2734375" right="0.279296875" top="0.376953125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-CornerBottomLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.5322265625" right="0.5634765625" top="0.5341796875" bottom="0.5654296875"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-CornerBottomRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.0810546875" right="0.1123046875" top="0.7490234375" bottom="0.7802734375"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-CornerTopLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.212890625" right="0.244140625" top="0.7197265625" bottom="0.7509765625"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-CornerTopRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.291015625" right="0.322265625" top="0.6845703125" bottom="0.7158203125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-EdgeBottom" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.0361328125" right="0.0673828125" top="0.7724609375" bottom="0.8037109375"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-EdgeLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.115234375" right="0.146484375" top="0.7490234375" bottom="0.7802734375"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-EdgeRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.359375" right="0.390625" top="0.6845703125" bottom="0.7158203125"/>
+	</Texture>
+	<Texture name="GlueDark-Border-Panel-EdgeTop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.001953125" right="0.033203125" top="0.7724609375" bottom="0.8037109375"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Border-Center" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="176" y="91"/>
+		<TexCoords left="0.001953125" right="0.244140625" top="0.001953125" bottom="0.126953125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Border-Left" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.39453125" right="0.46875" top="0.3076171875" bottom="0.4326171875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Border-Right" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.001953125" right="0.076171875" top="0.5185546875" bottom="0.6435546875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Center-Disabled" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="176" y="91"/>
+		<TexCoords left="0.2470703125" right="0.4892578125" top="0.001953125" bottom="0.126953125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Center-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="176" y="91"/>
+		<TexCoords left="0.001953125" right="0.244140625" top="0.2578125" bottom="0.3828125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Center" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="176" y="91"/>
+		<TexCoords left="0.001953125" right="0.244140625" top="0.1298828125" bottom="0.2548828125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Left-Disabled" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.15625" right="0.23046875" top="0.5185546875" bottom="0.6435546875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Left-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.263671875" right="0.337890625" top="0.4931640625" bottom="0.6181640625"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Left" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.0791015625" right="0.1533203125" top="0.5185546875" bottom="0.6435546875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Right-Disabled" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.39453125" right="0.46875" top="0.435546875" bottom="0.560546875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Right-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.5966796875" right="0.6708984375" top="0.001953125" bottom="0.126953125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Bright-Right" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="54" y="91"/>
+		<TexCoords left="0.4716796875" right="0.5458984375" top="0.3076171875" bottom="0.4326171875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Move-Down-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.421875" right="0.453125" top="0.626953125" bottom="0.658203125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Move-Down" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.6748046875" right="0.7060546875" top="0.3759765625" bottom="0.4072265625"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Move-Up-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.74609375" right="0.77734375" top="0.1298828125" bottom="0.1611328125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Move-Up" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.6748046875" right="0.7060546875" top="0.341796875" bottom="0.373046875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Boost-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.3251953125" right="0.3564453125" top="0.6845703125" bottom="0.7158203125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Boost-Normal" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.7158203125" right="0.7470703125" top="0.248046875" bottom="0.279296875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Boost-Pushed" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.1533203125" right="0.1845703125" top="0.759765625" bottom="0.791015625"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Delete-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.7158203125" right="0.7470703125" top="0.2822265625" bottom="0.3134765625"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Delete-Normal" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.59765625" right="0.62890625" top="0.46875" bottom="0.5"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Delete-Pushed" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.4716796875" right="0.5029296875" top="0.5947265625" bottom="0.6259765625"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Fix-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.76171875" right="0.79296875" top="0.0673828125" bottom="0.0986328125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Fix-Normal" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.7666015625" right="0.7978515625" top="0.001953125" bottom="0.033203125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Service-Fix-Pushed" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="23" y="23"/>
+		<TexCoords left="0.6748046875" right="0.7060546875" top="0.3076171875" bottom="0.3388671875"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Up-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="22" y="22"/>
+		<TexCoords left="0.5322265625" right="0.5625" top="0.568359375" bottom="0.5986328125"/>
+	</Texture>
+	<Texture name="GlueDark-Button-Up" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="22" y="22"/>
+		<TexCoords left="0.56640625" right="0.5966796875" top="0.5341796875" bottom="0.564453125"/>
+	</Texture>
+	<Texture name="GlueDark-Checkbox-Checked" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="24" y="24"/>
+		<TexCoords left="0.1171875" right="0.150390625" top="0.712890625" bottom="0.74609375"/>
+	</Texture>
+	<Texture name="GlueDark-Checkbox-Default" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="24" y="24"/>
+		<TexCoords left="0.0810546875" right="0.1142578125" top="0.712890625" bottom="0.74609375"/>
+	</Texture>
+	<Texture name="GlueDark-Checkbox-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="24" y="24"/>
+		<TexCoords left="0.212890625" right="0.24609375" top="0.68359375" bottom="0.716796875"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Background-Center" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="117" y="25"/>
+		<TexCoords left="0.623046875" right="0.783203125" top="0.1796875" bottom="0.2138671875"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Background-Left" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="9" y="25"/>
+		<TexCoords left="0.4560546875" right="0.46875" top="0.626953125" bottom="0.6611328125"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Background-Right" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="45" y="25"/>
+		<TexCoords left="0.6513671875" right="0.712890625" top="0.248046875" bottom="0.2822265625"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Button-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="37" y="22"/>
+		<TexCoords left="0.3408203125" right="0.3916015625" top="0.54296875" bottom="0.5732421875"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Button" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="37" y="22"/>
+		<TexCoords left="0.3408203125" right="0.3916015625" top="0.576171875" bottom="0.6064453125"/>
+	</Texture>
+	<Texture name="GlueDark-Dropdown-Entry-Background" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="141" y="22"/>
+		<TexCoords left="0.4716796875" right="0.6650390625" top="0.435546875" bottom="0.4658203125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-0" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.263671875" right="0.2880859375" top="0.6845703125" bottom="0.728515625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-1" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.1806640625" right="0.205078125" top="0.712890625" bottom="0.7568359375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-2" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.734375" right="0.7587890625" top="0.0673828125" bottom="0.111328125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-3" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.7392578125" right="0.763671875" top="0.001953125" bottom="0.0458984375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-4" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.39453125" right="0.4189453125" top="0.626953125" bottom="0.6708984375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-5" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.2333984375" right="0.2578125" top="0.5185546875" bottom="0.5625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-6" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.1533203125" right="0.177734375" top="0.712890625" bottom="0.7568359375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-7" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.2333984375" right="0.2578125" top="0.5654296875" bottom="0.609375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-8" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.001953125" right="0.0263671875" top="0.7255859375" bottom="0.76953125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-9" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="32"/>
+		<TexCoords left="0.029296875" right="0.0537109375" top="0.7255859375" bottom="0.76953125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-0" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.0810546875" right="0.103515625" top="0.783203125" bottom="0.818359375"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-1" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.32421875" right="0.3466796875" top="0.71875" bottom="0.75390625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-2" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.6748046875" right="0.697265625" top="0.41015625" bottom="0.4453125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-3" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.75" right="0.7724609375" top="0.248046875" bottom="0.283203125"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-4" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.1875" right="0.2099609375" top="0.759765625" bottom="0.794921875"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-5" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.212890625" right="0.2353515625" top="0.75390625" bottom="0.7890625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-6" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.421875" right="0.4443359375" top="0.6611328125" bottom="0.6962890625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-7" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.4716796875" right="0.494140625" top="0.62890625" bottom="0.6640625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-8" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.6318359375" right="0.654296875" top="0.46875" bottom="0.50390625"/>
+	</Texture>
+	<Texture name="GlueDark-Glyph-FQTC-Angled-9" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="26"/>
+		<TexCoords left="0.7158203125" right="0.73828125" top="0.31640625" bottom="0.3515625"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-Armor-Gold" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="74" y="74"/>
+		<TexCoords left="0.4921875" right="0.59375" top="0.001953125" bottom="0.103515625"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-Boost-Refund" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="44" y="44"/>
+		<TexCoords left="0.39453125" right="0.455078125" top="0.5634765625" bottom="0.6240234375"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-Info" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="19" y="19"/>
+		<TexCoords left="0.2333984375" right="0.259765625" top="0.6123046875" bottom="0.638671875"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-Mail" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="76" y="76"/>
+		<TexCoords left="0.263671875" right="0.3681640625" top="0.3857421875" bottom="0.490234375"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-Romb" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="26" y="25"/>
+		<TexCoords left="0.212890625" right="0.248046875" top="0.646484375" bottom="0.6806640625"/>
+	</Texture>
+	<Texture name="GlueDark-Icon-X" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="22" y="22"/>
+		<TexCoords left="0.291015625" right="0.3212890625" top="0.71875" bottom="0.7490234375"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-Alt-DAMAGER-RANGED" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="42" y="42"/>
+		<TexCoords left="0.6123046875" right="0.669921875" top="0.37109375" bottom="0.4287109375"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-Alt-DAMAGER" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="42" y="42"/>
+		<TexCoords left="0.537109375" right="0.5947265625" top="0.46875" bottom="0.5263671875"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-Alt-HEALER" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="42" y="42"/>
+		<TexCoords left="0.4716796875" right="0.529296875" top="0.5341796875" bottom="0.591796875"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-Alt-TANK" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="42" y="42"/>
+		<TexCoords left="0.673828125" right="0.7314453125" top="0.0673828125" bottom="0.125"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-DAMAGER-RANGED" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="42" y="42"/>
+		<TexCoords left="0.6123046875" right="0.669921875" top="0.37109375" bottom="0.4287109375"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-DAMAGER" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="46" y="46"/>
+		<TexCoords left="0.673828125" right="0.736328125" top="0.001953125" bottom="0.064453125"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-HEALER" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="46" y="46"/>
+		<TexCoords left="0.1474609375" right="0.2099609375" top="0.646484375" bottom="0.708984375"/>
+	</Texture>
+	<Texture name="GlueDark-IconRole-TANK" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="46" y="46"/>
+		<TexCoords left="0.4716796875" right="0.5341796875" top="0.46875" bottom="0.53125"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Center-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.3740234375" right="0.3916015625" top="0.3271484375" bottom="0.376953125"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Center" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.39453125" right="0.412109375" top="0.673828125" bottom="0.7236328125"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Left-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.263671875" right="0.28125" top="0.7314453125" bottom="0.78125"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Left" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.3740234375" right="0.3916015625" top="0.3798828125" bottom="0.4296875"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Right-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.3740234375" right="0.3916015625" top="0.4326171875" bottom="0.482421875"/>
+	</Texture>
+	<Texture name="GlueDark-Input-Background-Right" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="13" y="36"/>
+		<TexCoords left="0.505859375" right="0.5234375" top="0.5947265625" bottom="0.64453125"/>
+	</Texture>
+	<Texture name="GlueDark-ItemBorder" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="46" y="46"/>
+		<TexCoords left="0.0810546875" right="0.14453125" top="0.646484375" bottom="0.7099609375"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-CornerBottomLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.7666015625" right="0.7880859375" top="0.0361328125" bottom="0.0576171875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-CornerBottomRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.76171875" right="0.783203125" top="0.1015625" bottom="0.123046875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-CornerTopLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.744140625" right="0.765625" top="0.220703125" bottom="0.2421875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-CornerTopRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.59765625" right="0.619140625" top="0.5029296875" bottom="0.5244140625"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-EdgeBottom" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.056640625" right="0.078125" top="0.7255859375" bottom="0.748046875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-EdgeLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.1064453125" right="0.1279296875" top="0.783203125" bottom="0.8046875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-EdgeRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.7802734375" right="0.8017578125" top="0.1298828125" bottom="0.1513671875"/>
+	</Texture>
+	<Texture name="GlueDark-Metal-Triple-Border-EdgeTop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="16" y="16"/>
+		<TexCoords left="0.23828125" right="0.259765625" top="0.75390625" bottom="0.775390625"/>
+	</Texture>
+	<Texture name="GlueDark-Oribos-Corner-BottomLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="20" y="16"/>
+		<TexCoords left="0.623046875" right="0.650390625" top="0.220703125" bottom="0.2431640625"/>
+	</Texture>
+	<Texture name="GlueDark-Oribos-Corner-BottomRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="20" y="16"/>
+		<TexCoords left="0.68359375" right="0.7109375" top="0.220703125" bottom="0.2431640625"/>
+	</Texture>
+	<Texture name="GlueDark-Oribos-Corner-TopLeft" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="20" y="16"/>
+		<TexCoords left="0.6533203125" right="0.6806640625" top="0.220703125" bottom="0.2431640625"/>
+	</Texture>
+	<Texture name="GlueDark-Oribos-Corner-TopRight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="20" y="16"/>
+		<TexCoords left="0.7138671875" right="0.7412109375" top="0.220703125" bottom="0.2431640625"/>
+	</Texture>
+	<Texture name="GlueDark-PriceBackdrop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="164" y="48"/>
+		<TexCoords left="0.39453125" right="0.6201171875" top="0.1796875" bottom="0.2451171875"/>
+	</Texture>
+	<Texture name="GlueDark-RadioButton-Checked" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="34" y="34"/>
+		<TexCoords left="0.3408203125" right="0.3876953125" top="0.4931640625" bottom="0.5400390625"/>
+	</Texture>
+	<Texture name="GlueDark-RadioButton-Default" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="34" y="34"/>
+		<TexCoords left="0.2470703125" right="0.2939453125" top="0.3271484375" bottom="0.3740234375"/>
+	</Texture>
+	<Texture name="GlueDark-RadioButton-Highlight" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="34" y="34"/>
+		<TexCoords left="0.296875" right="0.34375" top="0.3271484375" bottom="0.3740234375"/>
+	</Texture>
+	<Texture name="GlueDark-Ring-Glow" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="95" y="95"/>
+		<TexCoords left="0.001953125" right="0.1318359375" top="0.3857421875" bottom="0.515625"/>
+	</Texture>
+	<Texture name="GlueDark-Ring-Silver" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="92" y="92"/>
+		<TexCoords left="0.134765625" right="0.2607421875" top="0.3857421875" bottom="0.51171875"/>
+	</Texture>
+	<Texture name="GlueDark-Scroll-EntryBackdrop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="361" y="34"/>
+		<TexCoords left="0.2470703125" right="0.7431640625" top="0.1298828125" bottom="0.1767578125"/>
+	</Texture>
+	<Texture name="GlueDark-ScrollBar-Backdrop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="18" y="36"/>
+		<TexCoords left="0.3466796875" right="0.37109375" top="0.3271484375" bottom="0.3759765625"/>
+	</Texture>
+	<Texture name="GlueDark-ScrollBar-Thumb" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="14" y="14"/>
+		<TexCoords left="0.4921875" right="0.51171875" top="0.1064453125" bottom="0.1259765625"/>
+	</Texture>
+	<Texture name="GlueDark-Separator" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="181" y="1"/>
+		<TexCoords left="0.623046875" right="0.87109375" top="0.216796875" bottom="0.2177734375"/>
+	</Texture>
+	<Texture name="GlueDark-Sign" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="185" y="41"/>
+		<TexCoords left="0.39453125" right="0.6484375" top="0.248046875" bottom="0.3046875"/>
+	</Texture>
+	<Texture name="GlueDark-Slider-Center" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="90" y="44"/>
+		<TexCoords left="0.548828125" right="0.671875" top="0.3076171875" bottom="0.3681640625"/>
+	</Texture>
+	<Texture name="GlueDark-Slider-Left" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="44" y="44"/>
+		<TexCoords left="0.3271484375" right="0.3876953125" top="0.62109375" bottom="0.681640625"/>
+	</Texture>
+	<Texture name="GlueDark-Slider-Right" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="44" y="44"/>
+		<TexCoords left="0.263671875" right="0.32421875" top="0.62109375" bottom="0.681640625"/>
+	</Texture>
+	<Texture name="GlueDark-Slider-Thumb" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="44" y="44"/>
+		<TexCoords left="0.548828125" right="0.609375" top="0.37109375" bottom="0.431640625"/>
+	</Texture>
+	<Texture name="GlueDark-Step-Backdrop" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="105" y="105"/>
+		<TexCoords left="0.2470703125" right="0.3916015625" top="0.1796875" bottom="0.32421875"/>
+	</Texture>
+	<Texture name="GlueDark-Step-Checkmark" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="55" y="55"/>
+		<TexCoords left="0.001953125" right="0.078125" top="0.646484375" bottom="0.72265625"/>
+	</Texture>
+	<Texture name="GlueDark-Step-Line" file="Interface/Custom/GlueDark/Generic" virtual="true">
+		<Size x="1" y="105"/>
+		<TexCoords left="0.1494140625" right="0.150390625" top="0.7490234375" bottom="0.892578125"/>
+	</Texture>
+
+	<Font name="GlueDark_Font_9" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="9"/>
+	</Font>
+	<Font name="GlueDark_Font_11" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="11"/>
+	</Font>
+	<Font name="GlueDark_Font_12" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="12"/>
+	</Font>
+	<Font name="GlueDark_Font_13" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="13"/>
+	</Font>
+	<Font name="GlueDark_Font_14" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="14"/>
+	</Font>
+	<Font name="GlueDark_Font_15" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="15"/>
+	</Font>
+	<Font name="GlueDark_Font_16" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="16"/>
+	</Font>
+	<Font name="GlueDark_Font_22" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="22"/>
+	</Font>
+	<Font name="GlueDark_Font_26" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="26"/>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_11" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="11"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_12" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="12"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_13" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="13"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_14" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="14"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_15" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="15"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_16" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="16"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_19" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="19"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_21" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="21"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Shadow_26" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="26"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_FontBold_11" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="11"/>
+	</Font>
+	<Font name="GlueDark_FontBold_15" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="15"/>
+	</Font>
+	<Font name="GlueDark_FontBold_16" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="16"/>
+	</Font>
+	<Font name="GlueDark_FontBold_19" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="19"/>
+	</Font>
+	<Font name="GlueDark_FontBold_26" font="Fonts/FRIZQT__.TTF" virtual="true">
+		<Color r="1" g="1" b="1"/>
+		<FontHeight val="26"/>
+	</Font>
+	<Font name="GlueDark_Font_Outline_9" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="9"/>
+		<Color r="0.5" g="0.5" b="0.5"/>
+	</Font>
+	<Font name="GlueDark_Font_Outline_11" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="11"/>
+		<Color r="0.5" g="0.5" b="0.5"/>
+	</Font>
+	<Font name="GlueDark_Font_Disable_13" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="13"/>
+		<Color r="0.5" g="0.5" b="0.5"/>
+	</Font>
+	<Font name="GlueDark_Font_Outline_13" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="13"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Outline_12" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="12"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Outline_14" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="14"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="GlueDark_Font_Outline_15" font="Fonts/FRIZQT__.TTF" outline="NORMAL" virtual="true">
+		<FontHeight val="15"/>
+		<Shadow>
+			<Offset x="1" y="-1"/>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+
+	<Font name="GlueDark_DropDownMenuButtonText" inherits="GlueDark_Font_11"/>
+	<Font name="GlueDark_DropDownMenuButtonTextBold" inherits="GlueDark_FontBold_11"/>
+	<Font name="GlueDark_DropDownMenuButtonTextDisabled" inherits="GlueDark_Font_11">
+		<Color r="0.4765625" g="0.4765625" b="0.4765625"/>
+	</Font>
+
+	<Button name="GlueDark_ButtonBaseTemplate" virtual="true">
+		<Size x="140" y="32"/>
+
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" parentKey="Left" inherits="GlueDark-Button-Bright-Left">
+					<Size x="19" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" parentKey="Right" inherits="GlueDark-Button-Bright-Right">
+					<Size x="19" y="32"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentMiddle" parentKey="Middle" inherits="GlueDark-Button-Bright-Center">
+					<Size x="0" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+
+		<Frames>
+			<Frame name="$parentBorderHightlight" parentKey="BorderHightlight" setAllPoints="true" hidden="true">
+				<Layers>
+					<Layer level="BORDER">
+						<Texture name="$parentLeft" parentKey="Left" inherits="GlueDark-Button-Bright-Border-Left">
+							<Size x="19" y="32"/>
+							<Anchors>
+								<Anchor point="TOPLEFT"/>
+								<Anchor point="BOTTOMLEFT"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentRight" parentKey="Right" inherits="GlueDark-Button-Bright-Border-Right">
+							<Size x="19" y="32"/>
+							<Anchors>
+								<Anchor point="TOPRIGHT"/>
+								<Anchor point="BOTTOMRIGHT"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentMiddle" parentKey="Middle" inherits="GlueDark-Button-Bright-Border-Center">
+							<Size x="0" y="32"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>
+				Mixin(self, GlueDark_ButtonMixin)
+
+				self:OnLoadStyle()
+			</OnLoad>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnEnable>
+				self:OnEnable()
+			</OnEnable>
+			<OnDisable>
+				self:OnDisable()
+			</OnDisable>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_ButtonTemplate" inherits="GlueDark_ButtonBaseTemplate" virtual="true">
+		<ButtonText name="$parentText" parentKey="ButtonText" inherits="GlueDark_Font_Outline_13" justifyH="CENTER">
+			<Anchors>
+				<Anchor point="CENTER" x="0" y="1"/>
+			</Anchors>
+			<Color r="0.082352941176471" g="0.082352941176471" b="0.082352941176471"/>
+		</ButtonText>
+	</Button>
+	<Button name="GlueDark_ButtonBoldTemplate" inherits="GlueDark_ButtonBaseTemplate" virtual="true">
+		<ButtonText name="$parentText" parentKey="ButtonText" inherits="GlueDark_Font_Outline_15" justifyH="CENTER">
+			<Anchors>
+				<Anchor point="CENTER" x="0" y="1"/>
+			</Anchors>
+			<Color r="0.082352941176471" g="0.082352941176471" b="0.082352941176471"/>
+		</ButtonText>
+	</Button>
+
+	<Button name="GlueDark_CloseButtonTemplate" virtual="true">
+		<Size x="23" y="23"/>
+		<Anchors>
+			<Anchor point="TOPRIGHT" x="-13" y="-13"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self.PushedTexture:SetVertexColor(1, 0, 0, 1)
+			</OnLoad>
+			<OnShow>
+				self:SetAlpha(self:IsEnabled() == 1 and 1 or 0.5)
+			</OnShow>
+			<OnEnable>
+				self:SetAlpha(1)
+			</OnEnable>
+			<OnDisable>
+				self:SetAlpha(0.5)
+			</OnDisable>
+			<OnEnter>
+				self.NormalTexture:SetVertexColor(1, 0, 0, 1)
+			</OnEnter>
+			<OnLeave>
+				self.NormalTexture:SetVertexColor(1, 1, 1, 1)
+			</OnLeave>
+			<OnClick>
+				PlaySound(SOUNDKIT.GS_TITLE_OPTION_EXIT)
+				self:GetParent():Hide()
+			</OnClick>
+		</Scripts>
+		<NormalTexture parentKey="NormalTexture" inherits="GlueDark-Icon-X"/>
+		<PushedTexture parentKey="PushedTexture" inherits="GlueDark-Icon-X">
+			<Anchors>
+				<Anchor point="TOPLEFT" x="1" y="-1"/>
+				<Anchor point="BOTTOMRIGHT" x="1" y="-1"/>
+			</Anchors>
+		</PushedTexture>
+	</Button>
+
+	<Button name="GlueDark_ButtonUpTemplate" virtual="true">
+		<Size x="22" y="22"/>
+		<HitRectInsets left="2" right="2" top="2" bottom="2"/>
+
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentNormalTexture" parentKey="NormalTexture" inherits="GlueDark-Button-Up"/>
+			</Layer>
+			<Layer level="HIGHLIGHT">
+				<Texture name="$parentHighlightTexture" parentKey="HighlightTexture" inherits="GlueDark-Button-Up-Highlight"/>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnShow>
+				self:SetAlpha(self:IsEnabled() == 1 and 1 or 0.5)
+			</OnShow>
+			<OnEnable>
+				self:SetAlpha(1)
+			</OnEnable>
+			<OnDisable>
+				self:SetAlpha(0.5)
+			</OnDisable>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_ButtonDownTemplate" inherits="GlueDark_ButtonUpTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>
+				SetClampedTextureRotation(self.NormalTexture, 180)
+				SetClampedTextureRotation(self.HighlightTexture, 180)
+			</OnLoad>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_ButtonNextTemplate" inherits="GlueDark_ButtonUpTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>
+				SetClampedTextureRotation(self.NormalTexture, 90)
+				SetClampedTextureRotation(self.HighlightTexture, 90)
+			</OnLoad>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_ButtonPreviousTemplate" inherits="GlueDark_ButtonUpTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>
+				SetClampedTextureRotation(self.NormalTexture, 270)
+				SetClampedTextureRotation(self.HighlightTexture, 270)
+			</OnLoad>
+		</Scripts>
+	</Button>
+
+	<Button name="GlueDark_InfoButtonTemplate" virtual="true">
+		<Size x="20" y="20"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" parentKey="Icon" setAllPoints="true" inherits="GlueDark-Icon-Info"/>
+			</Layer>
+		</Layers>
+
+		<Attributes>
+			<Attribute name="TOOLTIP_ANCHOR" value="ANCHOR_LEFT" type="string"/>
+			<Attribute name="TOOLTIP_HINT_ANIMATION" value="false" type="boolean"/>
+			<Attribute name="TOOLTIP_HINT_FADEIN_SECONDS" value="0.5" type="number"/>
+			<Attribute name="TOOLTIP_HINT_FADEOUT_SECONDS" value="0.5" type="number"/>
+			<Attribute name="TOOLTIP_HINT_HOLD_SECONDS" value="2" type="number"/>
+		</Attributes>
+
+		<Frames>
+			<Frame name="$parentTooltip" parentKey="Tooltip" inherits="GlueTooltipTemplate" hidden="true">
+				<Animations>
+					<AnimationGroup parentKey="AlphaAnim">
+						<Alpha duration="0" change="-1" order="1"/>
+						<Alpha parentKey="AnimIn" duration="0.5" change="1" smoothing="IN" order="2"/>
+						<Alpha parentKey="AnimOut" startDelay="2" duration="0.5" change="-1" smoothing="OUT" order="3"/>
+						<Scripts>
+							<OnFinished>
+								self:GetParent():OnFadeFinish()
+							</OnFinished>
+						</Scripts>
+					</AnimationGroup>
+				</Animations>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, GlueDark_InfoButtonTooltipMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnHide>
+						self:OnHide()
+					</OnHide>
+				</Scripts>
+			</Frame>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>
+				Mixin(self, GlueDark_InfoButtonMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<CheckButton name="GlueDark_CheckBoxTemplate" virtual="true">
+		<Size x="24" y="24"/>
+		<HitRectInsets left="4" right="4" top="4" bottom="4"/>
+		<Scripts>
+			<OnLoad>
+				self.__dark = true
+				if self:IsEnabled() ~= 1 then
+					self:SetAlpha(0.5)
+				end
+			</OnLoad>
+			<OnShow>
+				self:SetAlpha(self:IsEnabled() == 1 and 1 or 0.5)
+			</OnShow>
+			<OnEnable>
+				self:SetAlpha(1)
+			</OnEnable>
+			<OnDisable>
+				self:SetAlpha(0.5)
+			</OnDisable>
+		</Scripts>
+		<NormalTexture inherits="GlueDark-Checkbox-Default"/>
+		<HighlightTexture inherits="GlueDark-Checkbox-Highlight" alphaMode="ADD"/>
+		<CheckedTexture inherits="GlueDark-Checkbox-Checked"/>
+	</CheckButton>
+
+	<CheckButton name="GlueDark_RadioButtonTemplate" virtual="true">
+		<Size x="12" y="12"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentText" parentKey="Text" inherits="GlueDark_Font_13">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" x="5" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				if self:IsEnabled() ~= 1 then
+					self.NormalTexture:SetAlpha(0.5)
+					self.CheckedTexture:SetAlpha(0.5)
+					self.Text:SetTextColor(0.45490196078431, 0.46274509803922, 0.47058823529412)
+				end
+			</OnLoad>
+			<OnShow>
+				if self:IsEnabled() == 1 then
+					self.NormalTexture:SetAlpha(1)
+					self.CheckedTexture:SetAlpha(1)
+					self.Text:SetTextColor(1, 1, 1)
+				else
+					self.NormalTexture:SetAlpha(0.5)
+					self.CheckedTexture:SetAlpha(0.5)
+					self.Text:SetTextColor(0.45490196078431, 0.46274509803922, 0.47058823529412)
+				end
+			</OnShow>
+			<OnEnable>
+				self.NormalTexture:SetAlpha(1)
+				self.CheckedTexture:SetAlpha(1)
+				self.Text:SetTextColor(1, 1, 1)
+			</OnEnable>
+			<OnDisable>
+				self.NormalTexture:SetAlpha(0.5)
+				self.CheckedTexture:SetAlpha(0.5)
+				self.Text:SetTextColor(0.45490196078431, 0.46274509803922, 0.47058823529412)
+			</OnDisable>
+		</Scripts>
+		<NormalTexture parentKey="NormalTexture" inherits="GlueDark-RadioButton-Default"/>
+		<HighlightTexture inherits="GlueDark-RadioButton-Highlight" alphaMode="ADD"/>
+		<CheckedTexture parentKey="CheckedTexture" inherits="GlueDark-RadioButton-Checked"/>
+	</CheckButton>
+
+	<Slider name="GlueDark_SliderTemplate" orientation="HORIZONTAL" virtual="true" enableMouse="true">
+		<Size x="178" y="24"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" parentKey="Left" inherits="GlueDark-Slider-Left">
+					<Size x="24" y="24"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" parentKey="Right" inherits="GlueDark-Slider-Right">
+					<Size x="24" y="24"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentMiddle" parentKey="Middle" inherits="GlueDark-Slider-Center">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				local height = self:GetHeight()
+				self.Left:SetSize(height, height)
+				self.Right:SetSize(height, height)
+				self.Thumb:SetSize(height, height)
+			</OnLoad>
+			<OnSizeChanged>
+				self.Left:SetSize(arg2, arg2)
+				self.Right:SetSize(arg2, arg2)
+				self.Thumb:SetSize(arg2, arg2)
+			</OnSizeChanged>
+		</Scripts>
+		<ThumbTexture name="$parentThumb" parentKey="Thumb" inherits="GlueDark-Slider-Thumb">
+			<Size x="24" y="24"/>
+		</ThumbTexture>
+	</Slider>
+
+	<EditBox name="GlueDark_EditBoxTemplate" historyLines="1" virtual="true">
+		<Size x="54" y="51"/>
+		<HitRectInsets left="6" right="6" top="5" bottom="5"/>
+
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" parentKey="Left" inherits="GlueDark-Input-Background-Left">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" parentKey="Right" inherits="GlueDark-Input-Background-Right">
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentMiddle" parentKey="Middle" inherits="GlueDark-Input-Background-Center">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitleText" parentKey="TitleText" inherits="GlueDark_Font_15" justifyH="CENTER">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="TOP" y="0" x="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+
+		<Scripts>
+			<OnEnter>
+				if not self.isFocused then
+					self.Left:SetAtlas("GlueDark-Input-Background-Left-Highlight")
+					self.Middle:SetAtlas("GlueDark-Input-Background-Center-Highlight")
+					self.Right:SetAtlas("GlueDark-Input-Background-Right-Highlight")
+				end
+			</OnEnter>
+			<OnLeave>
+				if not self.isFocused then
+					self.Left:SetAtlas("GlueDark-Input-Background-Left")
+					self.Middle:SetAtlas("GlueDark-Input-Background-Center")
+					self.Right:SetAtlas("GlueDark-Input-Background-Right")
+				end
+			</OnLeave>
+			<OnEditFocusGained>
+				self.isFocused = true
+				self.Left:SetAtlas("GlueDark-Input-Background-Left-Highlight")
+				self.Middle:SetAtlas("GlueDark-Input-Background-Center-Highlight")
+				self.Right:SetAtlas("GlueDark-Input-Background-Right-Highlight")
+				self:HighlightText()
+			</OnEditFocusGained>
+			<OnEditFocusLost>
+				self.isFocused = nil
+				self:HighlightText(0, 0)
+				self.Left:SetAtlas("GlueDark-Input-Background-Left")
+				self.Middle:SetAtlas("GlueDark-Input-Background-Center")
+				self.Right:SetAtlas("GlueDark-Input-Background-Right")
+			</OnEditFocusLost>
+		</Scripts>
+
+		<FontString inherits="GlueDark_Font_15"/>
+		<TextInsets>
+			<AbsInset left="12" right="12" top="12" bottom="12"/>
+		</TextInsets>
+	</EditBox>
+
+	<Slider name="GlueDark_HybridScrollBarTemplate" virtual="true">
+		<Size x="16" y="0"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentBackground" inherits="GlueDark-ScrollBar-Backdrop"/>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentScrollUpButton" parentKey="ScrollUpButton" inherits="GlueDark_ButtonUpTemplate">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="BOTTOM" relativePoint="TOP" x="0" y="-2"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad function="HybridScrollFrameScrollUp_OnLoad"/>
+					<OnClick function ="HybridScrollFrameScrollButton_OnClick"/>
+				</Scripts>
+			</Button>
+			<Button name="$parentScrollDownButton" parentKey="ScrollDownButton" inherits="GlueDark_ButtonDownTemplate">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" x="0" y="2"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						SetClampedTextureRotation(self.NormalTexture, 180)
+						SetClampedTextureRotation(self.HighlightTexture, 180)
+						HybridScrollFrameScrollDown_OnLoad(self)
+					</OnLoad>
+					<OnClick function="HybridScrollFrameScrollButton_OnClick"/>
+				</Scripts>
+			</Button>
+		</Frames>
+		<ThumbTexture name="$parentThumbTexture" parentKey="thumbTexture" inherits="GlueDark-ScrollBar-Thumb"/>
+		<Scripts>
+			<OnValueChanged function="HybridScrollFrame_OnValueChanged"/>
+		</Scripts>
+	</Slider>
+
+	<ScrollFrame name="GlueDark_BasicHybridScrollFrameTemplate" inherits="HybridScrollFrameTemplate" virtual="true">
+		<Frames>
+			<Slider name="$parentScrollBar" parentKey="ScrollBar" inherits="GlueDark_HybridScrollBarTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="0" y="-17"/>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="0" y="12"/>
+				</Anchors>
+			</Slider>
+		</Frames>
+	</ScrollFrame>
+
+	<ScrollFrame name="GlueDark_FauxScrollFrameTemplate" virtual="true">
+		<Frames>
+			<Slider name="$parentScrollBar" parentKey="ScrollBar">
+				<Size x="16" y="0"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="10" y="-11"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="10" y="11"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="$parentTop" inherits="GlueDark-ScrollBar-Backdrop"/>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="$parentScrollUpButton" parentKey="ScrollUpButton" inherits="GlueDark_ButtonUpTemplate">
+						<Size x="18" y="18"/>
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="TOP"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								local parent = self:GetParent();
+								parent:SetValue(parent:GetValue() - (parent:GetHeight() / 2));
+								PlaySound("UChatScrollButton");
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentScrollDownButton" parentKey="ScrollDownButton" inherits="GlueDark_ButtonDownTemplate">
+						<Size x="18" y="18"/>
+						<Anchors>
+							<Anchor point="TOP" relativePoint="BOTTOM"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								local parent = self:GetParent();
+								parent:SetValue(parent:GetValue() + (parent:GetHeight() / 2));
+								PlaySound("UChatScrollButton");
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+				<Scripts>
+					<OnValueChanged>
+						self:GetParent():SetVerticalScroll(value);
+					</OnValueChanged>
+				</Scripts>
+				<ThumbTexture name="$parentThumbTexture" inherits="GlueDark-ScrollBar-Thumb"/>
+			</Slider>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				ScrollFrame_OnLoad(self);
+			</OnLoad>
+			<OnScrollRangeChanged>
+				ScrollFrame_OnScrollRangeChanged(self, xrange, yrange);
+			</OnScrollRangeChanged>
+			<OnVerticalScroll>
+				local scrollbar = _G[self:GetName().."ScrollBar"];
+				scrollbar:SetValue(offset);
+				local min;
+				local max;
+				min, max = scrollbar:GetMinMaxValues();
+				if ( offset == 0 ) then
+					_G[scrollbar:GetName().."ScrollUpButton"]:Disable();
+				else
+					_G[scrollbar:GetName().."ScrollUpButton"]:Enable();
+				end
+				if ((scrollbar:GetValue() - max) == 0) then
+					_G[scrollbar:GetName().."ScrollDownButton"]:Disable();
+				else
+					_G[scrollbar:GetName().."ScrollDownButton"]:Enable();
+				end
+			</OnVerticalScroll>
+			<OnMouseWheel>
+				ScrollFrameTemplate_OnMouseWheel(self, delta);
+			</OnMouseWheel>
+			<OnScrollRangeChanged function=""/>
+		</Scripts>
+
+		<ScrollChild>
+			<Frame name="$parentScrollChildFrame">
+				<Size>
+					<AbsDimension x="300" y="334"/>
+				</Size>
+			</Frame>
+		</ScrollChild>
+	</ScrollFrame>
+
+	<Button name="GlueDark_DropDownMenuButtonTemplate" virtual="true">
+		<Size x="128" y="17"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentHighlight" parentKey="Highlight" inherits="GlueDark-Dropdown-Entry-Background" hidden="true">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="3"/>
+						<Anchor point="BOTTOMRIGHT" x="0" y="-3"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentMenuHighlight" parentKey="MenuHighlight" file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD" hidden="true">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="-1"/>
+						<Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentCheck" parentKey="Check" inherits="GlueDark-Checkbox-Checked">
+					<Size x="25" y="25"/>
+					<Anchors>
+						<Anchor point="LEFT" x="0" y="0"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentColorSwatch" parentKey="ColorSwatch" hidden="true">
+				<Size x="16" y="16"/>
+				<Anchors>
+					<Anchor point="RIGHT" x="-6" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentSwatchBg" parentKey="SwatchBg">
+							<Size x="14" y="14"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0"/>
+							</Anchors>
+							<Color r="1.0" g="1.0" b="1.0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						CloseMenus();
+						GlueDark_DropDownMenuButton_OpenColorPicker(self, self:GetParent());
+					</OnClick>
+					<OnEnter>
+						GlueDark_CloseDropDownMenus(self:GetParent():GetParent():GetID() + 1);
+						self.SwatchBg:SetVertexColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b);
+						GlueDark_DropDownMenu_StopCounting(self:GetParent():GetParent());
+					</OnEnter>
+					<OnLeave>
+						self.SwatchBg:SetVertexColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b);
+						GlueDark_DropDownMenu_StartCounting(self:GetParent():GetParent());
+					</OnLeave>
+				</Scripts>
+				<NormalTexture name="$parentNormalTexture" file="Interface\ChatFrame\ChatFrameColorSwatch"/>
+			</Button>
+			<Button name="$parentExpandArrow" parentKey="ExpandArrow" hidden="true">
+				<Size x="16" y="16"/>
+				<Anchors>
+					<Anchor point="RIGHT" x="-6" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						GlueDark_ToggleDropDownMenu(self, self:GetParent():GetParent():GetID() + 1, self:GetParent().value);
+					</OnClick>
+					<OnEnter>
+						GlueDark_ToggleDropDownMenu(self, self:GetParent():GetParent():GetID() + 1, self:GetParent().value);
+						GlueDark_DropDownMenu_StopCounting(self:GetParent():GetParent());
+					</OnEnter>
+					<OnLeave>
+						GlueDark_DropDownMenu_StartCounting(self:GetParent():GetParent());
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\ChatFrame\ChatFrameExpandArrow"/>
+			</Button>
+			<Button name="$parentInvisibleButton" parentKey="InvisibleButton" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMLEFT"/>
+					<Anchor point="RIGHT" relativeTo="$parentColorSwatch" relativePoint="LEFT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						GlueDark_DropDownMenu_StopCounting(self:GetParent():GetParent());
+						GlueDark_CloseDropDownMenus(self:GetParent():GetParent():GetID() + 1);
+					</OnEnter>
+					<OnLeave>
+						GlueDark_DropDownMenu_StartCounting(self:GetParent():GetParent());
+					</OnLeave>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnClick>
+				GlueDark_DropDownMenuButton_OnClick(self);
+			</OnClick>
+			<OnEnter>
+				if ( self.hasArrow ) then
+					GlueDark_ToggleDropDownMenu(self, self:GetParent():GetID() + 1, self.value);
+				else
+					GlueDark_CloseDropDownMenus(self:GetParent():GetID() + 1);
+				end
+				if self:GetParent().displayMode == "MENU" then
+					self.MenuHighlight:Show()
+				else
+					self.Highlight:Show()
+				end
+				GlueDark_DropDownMenu_StopCounting(self:GetParent());
+			</OnEnter>
+			<OnLeave>
+				if self:GetParent().displayMode == "MENU" then
+					self.MenuHighlight:Hide()
+				else
+					self.Highlight:Hide()
+				end
+				GlueDark_DropDownMenu_StartCounting(self:GetParent());
+			</OnLeave>
+		</Scripts>
+		<ButtonText name="$parentNormalText" parentKey="NormalText"/>
+		<NormalFont style="GlueDark_Font_13"/>
+		<HighlightFont style="GlueDark_Font_13"/>
+		<DisabledFont style="GlueDark_Font_Disable_13"/>
+	</Button>
+	<Button name="GlueDark_DropDownListTemplate" frameStrata="DIALOG" enableMouse="true" virtual="true">
+		<Attributes>
+			<Attribute name="layoutType" value="GlueDarkDropDownBorder" type="string"/>
+			<Attribute name="layoutParentFrameLevel" value="true" type="boolean"/>
+		</Attributes>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBackdrop" parentKey="Backdrop" inherits="GlueDark-Backdrops-Background-Dropdown"/>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentNineSlice" parentKey="NineSlice" inherits="NineSlicePanelTemplate"/>
+
+			<Frame name="$parentMenuBackdrop" parentKey="MenuBackdrop" setAllPoints="true">
+				<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<BackgroundInsets left="4" right="4" top="4" bottom="4"/>
+					<TileSize val="16"/>
+					<EdgeSize val="16"/>
+					<Color r="0.15" g="0.15" b="0.15" a="1"/>
+					<BorderColor r="0" g="0" b="0" a="1"/>
+				</Backdrop>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self.maxButtons = 0;
+			</OnLoad>
+			<OnClick>
+				self:Hide();
+			</OnClick>
+			<OnEnter>
+				GlueDark_DropDownMenu_StopCounting(self);
+			</OnEnter>
+			<OnLeave>
+				GlueDark_DropDownMenu_StartCounting(self);
+			</OnLeave>
+			<OnUpdate>
+				GlueDark_DropDownMenu_OnUpdate(self, elapsed);
+			</OnUpdate>
+			<OnShow>
+				for i=1, self.maxButtons do
+					if (not self.noResize) then
+						_G[self:GetName().."Button"..i]:SetWidth(self.maxWidth);
+					end
+				end
+				if (not self.noResize) then
+					self:SetWidth(self.maxWidth+15);
+				end
+				self.showTime = nil;
+				if ( self:GetID() > 1 ) then
+					self.parent = _G["DropDownList"..(self:GetID() - 1)];
+				end
+			</OnShow>
+		</Scripts>
+	</Button>
+
+	<Button name="GlueDark_DropDownButtonTemplate" virtual="true">
+		<Size x="37" y="22"/>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentNormalTexture" parentKey="NormalTexture" inherits="GlueDark-Dropdown-Button"/>
+			</Layer>
+			<Layer level="HIGHLIGHT">
+				<Texture name="$parentHighlightTexture" parentKey="HighlightTexture" inherits="GlueDark-Dropdown-Button-Highlight"/>
+			</Layer>
+		</Layers>
+
+		<Scripts>
+			<OnLoad>
+				self.HandlesGlobalMouseEvent = function(this, buttonID, event)
+					return event == "GLOBAL_MOUSE_DOWN" and buttonID == "LeftButton"
+				end
+			</OnLoad>
+			<OnShow>
+				self:SetAlpha(self:IsEnabled() == 1 and 1 or 0.5)
+			</OnShow>
+			<OnEnable>
+				self:SetAlpha(1)
+			</OnEnable>
+			<OnDisable>
+				self:SetAlpha(0.5)
+			</OnDisable>
+			<OnClick>
+				GlueDark_ToggleDropDownMenu(self);
+				PlaySound("igMainMenuOptionCheckBoxOn");
+			</OnClick>
+			<OnEnter>
+				local parent = self:GetParent()
+				if parent.fullWidthButtonHitRect then
+					local script = parent:GetScript("OnEnter")
+					if script then
+						script(parent)
+					end
+				end
+			</OnEnter>
+			<OnLeave>
+				local parent = self:GetParent()
+				if parent.fullWidthButtonHitRect then
+					local script = parent:GetScript("OnLeave")
+					if script then
+						script(parent)
+					end
+				end
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Frame name="GlueDark_DropDownMenuTemplate" virtual="true">
+		<Size x="140" y="25"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" parentKey="Left" inherits="GlueDark-Dropdown-Background-Left">
+					<Size x="9" y="25"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="-3"/>
+						<Anchor point="BOTTOMLEFT" x="0" y="4"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" parentKey="Right" inherits="GlueDark-Dropdown-Background-Right">
+					<Size x="45" y="25"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="0" y="-3"/>
+						<Anchor point="BOTTOMRIGHT" x="0" y="4"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentMiddle" parentKey="Middle" inherits="GlueDark-Dropdown-Background-Center">
+					<Size x="117" y="25"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentText" parentKey="Text" inherits="GlueDark_Font_12" justifyH="RIGHT">
+					<Size x="0" y="10"/>
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentRight" x="-43" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentButton" parentKey="Button" inherits="GlueDark_DropDownButtonTemplate">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentRight" x="-1" y="0"/>
+				</Anchors>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnHide>
+				GlueDark_CloseDropDownMenus();
+			</OnHide>
+		</Scripts>
+	</Frame>
+
+	<Button name="GlueDark_DropDownList1" toplevel="true" frameStrata="FULLSCREEN_DIALOG" inherits="GlueDark_DropDownListTemplate" hidden="true" id="1">
+		<Size x="180" y="10"/>
+		<Scripts>
+			<OnHide>
+				GlueDark_CloseDropDownMenus(2);
+			</OnHide>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_DropDownList2" toplevel="true" frameStrata="FULLSCREEN_DIALOG" inherits="GlueDark_DropDownListTemplate" hidden="true" id="2">
+		<Size x="180" y="10"/>
+		<Scripts>
+			<OnHide>
+				GlueDark_CloseDropDownMenus(3);
+			</OnHide>
+		</Scripts>
+	</Button>
+	<Button name="GlueDark_DropDownList3" toplevel="true" frameStrata="FULLSCREEN_DIALOG" inherits="GlueDark_DropDownListTemplate" hidden="true" id="3">
+		<Size x="180" y="10"/>
+	</Button>
+
+	<Frame name="GlueDark_DialogFrameTemplate" virtual="true" enableKeyboard="true">
+		<Scripts>
+			<OnKeyDown function="GlueDark_DialogFrame_OnKeyDown"/>
+		</Scripts>
+	</Frame>
+</Ui>

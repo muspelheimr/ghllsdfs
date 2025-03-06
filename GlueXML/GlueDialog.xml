@@ -1,0 +1,181 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="GlueDialog.lua"/>
+
+	<Button name="GlueDialogButtonTemplate" inherits="GlueDark_ButtonTemplate" motionScriptsWhileDisabled="true" virtual="true">
+		<Size x="130" y="26"/>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, GlueDark_ButtonMixin, GlueDialogButtonMixin)
+				self:OnLoad()
+				self:OnLoadStyle()
+			</OnLoad>
+			<OnClick>
+				self:OnClick()
+			</OnClick>
+		</Scripts>
+	</Button>
+	<Frame name="GlueDialog" parent="GlueParent" toplevel="true" frameStrata="DIALOG" setAllPoints="true" enableMouse="true" enableKeyboard="true" hidden="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBackground" parentKey="Background" alpha="0.6" file="Interface\Custom\Glue\Vignette-256">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-14" y="10" />
+						<Anchor point="BOTTOMRIGHT" x="14" y="-10" />
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+
+		<Frames>
+			<Frame name="$parentContainer" parentKey="Container">
+				<Size x="640" y="160"/>
+				<Anchors>
+					<Anchor point="CENTER" x="0" y="35"/>
+				</Anchors>
+
+				<Attributes>
+					<Attribute name="layoutType" value="GlueDarkTemplate" type="string"/>
+					<Attribute name="layoutParentFrameLevel" value="true" type="boolean"/>
+				</Attributes>
+
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background" inherits="GlueDark-Backdrops-Dialog-Backdrop2"/>
+					</Layer>
+					<Layer level="ARTWORK">
+						<FontString name="$parentTitle" parentKey="Title" inherits="GlueFontNormal">
+							<Size x="400" y="0"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-32"/>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentText" parentKey="Text" inherits="GlueFontNormal">
+							<Size x="400" y="0"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-32"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+						<Texture name="$parentAlertIcon" parentKey="AlertIcon" file="Interface\DialogFrame\UI-Dialog-Icon-AlertNew" hidden="true">
+							<Size x="48" y="48"/>
+							<Anchors>
+								<Anchor point="LEFT" x="70" y="0"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+
+				<Frames>
+					<Frame name="$parentNineSlice" parentKey="NineSlice" inherits="NineSlicePanelTemplate" hidden="true"/>
+
+					<SimpleHTML name="$parentHTML" parentKey="HTML" hyperlinkFormat="|cff06ff07|H%s|h[%s]|h|r" hidden="true">
+						<Size x="400" y="30"/>
+						<Anchors>
+							<Anchor point="TOP" x="0" y="-36"/>
+						</Anchors>
+						<Scripts>
+							<OnHyperlinkClick>
+								LaunchURL(link)
+							</OnHyperlinkClick>
+						</Scripts>
+						<FontString inherits="GlueFontNormal" spacing="2"/>
+						<FontStringHeader1 inherits="GlueFontNormal" spacing="4"/>
+						<FontStringHeader2 inherits="GlueFontNormal" spacing="4"/>
+					</SimpleHTML>
+					<Button name="$parentButton1" parentKey="Button1" inherits="GlueDialogButtonTemplate" id="1"/>
+					<Button name="$parentButton2" parentKey="Button2" inherits="GlueDialogButtonTemplate" id="2"/>
+					<Button name="$parentButton3" parentKey="Button3" inherits="GlueDialogButtonTemplate" id="3"/>
+					<Button name="$parentInfoIcon" parentKey="InfoIcon" inherits="GlueDark_InfoButtonTemplate"/>
+					<Frame name="$parentSpinner" parentKey="Spinner" inherits="LoadingSpinnerTemplate" hidden="true">
+						<Anchors>
+							<Anchor point="BOTTOM" x="0" y="16"/>
+						</Anchors>
+					</Frame>
+					<EditBox name="$parentEditBox" parentKey="EditBox" inherits="GlueDark_EditBoxTemplate">
+						<Size x="200" y="51"/>
+						<Anchors>
+							<Anchor point="CENTER" x="0" y="10"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								Mixin(self, GlueDialogEditBoxMixin)
+								self:OnLoad()
+							</OnLoad>
+							<OnEnterPressed>
+								self:OnEnterPressed()
+							</OnEnterPressed>
+							<OnEscapePressed>
+								self:OnEscapePressed()
+							</OnEscapePressed>
+						</Scripts>
+					</EditBox>
+					<Frame name="$parentHardcoreProposal" parentKey="HardcoreProposal">
+						<Size x="0" y="70"/>
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentText" relativePoint="BOTTOM" x="0" y="-10"/>
+							<Anchor point="LEFT" x="20" y="0"/>
+							<Anchor point="RIGHT" x="-20" y="0"/>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="$parentWarning" parentKey="Warning" inherits="GlueFontNormal" text="CHARACTER_HARDCORE_PROPOSAL_WARNING">
+									<Anchors>
+										<Anchor point="TOP" x="0" y="-10"/>
+									</Anchors>
+									<Color r="1" g="0.2" b="0.2"/>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<Frame name="$parentIconFrame" parentKey="IconFrame">
+								<Size x="50" y="50"/>
+								<Anchors>
+									<Anchor point="TOP" x="0" y="0"/>
+								</Anchors>
+								<Layers>
+									<Layer level="ARTWORK">
+										<Texture name="$parentIcon" parentKey="Icon" setAllPoints="true"/>
+									</Layer>
+								</Layers>
+								<Scripts>
+									<OnEnter>
+										GlueTooltip:SetOwner(self, "ANCHOR_RIGHT")
+										GlueTooltip:SetMaxWidth(350)
+										GlueTooltip:AddLine(CHARACTER_CREATE_HARDCORE_LABEL, 1, 1, 1)
+										GlueTooltip:AddLine(CHARACTER_CREATE_HARDCORE_TIP, 1, 0.82, 0)
+										GlueTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GlueTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Frame>
+						</Frames>
+					</Frame>
+				</Frames>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, GlueDialogMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnEvent>
+				self:OnEvent(event, ...)
+			</OnEvent>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+			<OnKeyDown>
+				self:OnKeyDown(key)
+			</OnKeyDown>
+			<OnMouseWheel>
+				-- Block MouseWheel
+			</OnMouseWheel>
+		</Scripts>
+	</Frame>
+</Ui>

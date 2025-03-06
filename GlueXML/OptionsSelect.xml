@@ -1,0 +1,93 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="OptionsSelect.lua"/>
+
+	<Frame name="OptionsSelectFrame" toplevel="true" setAllPoints="true" hidden="true" enableMouse="true" enableKeyboard="true" frameStrata="HIGH">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture setAllPoints="true">
+					<Color a="0.75" r="0" g="0" b="0"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentContainer" parentKey="Container" enableMouse="true">
+				<Size x="240" y="180"/>
+				<Anchors>
+					<Anchor point="CENTER" x="0" y="-20"/>
+				</Anchors>
+
+				<Attributes>
+					<Attribute name="layoutType" value="GlueDarkTemplate" type="string"/>
+					<Attribute name="layoutParentFrameLevel" value="true" type="boolean"/>
+				</Attributes>
+
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background" inherits="GlueDark-Backdrops-Background-Main"/>
+					</Layer>
+					<Layer level="BORDER">
+						<Texture name="$parentBottomShadow" parentKey="BottomShadow" inherits="GlueDark-Backdrops-Shadow-Bottom">
+							<Size x="0" y="182"/>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+
+				<Frames>
+					<Frame name="$parentNineSlice" parentKey="NineSlice" inherits="NineSlicePanelTemplate"/>
+
+					<Button name="$parentVideoOptionsButton" inherits="GlueDark_ButtonTemplate" text="VIDEOOPTIONS_MENU">
+						<Size x="160" y="32"/>
+						<Anchors>
+							<Anchor point="TOP" x="0" y="-20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="OptionsSelectFrame_VideoOptionsButton_OnClick"/>
+						</Scripts>
+					</Button>
+					<Button name="$parentAudioOptionsButton" inherits="GlueDark_ButtonTemplate" text="SOUNDOPTIONS_MENU">
+						<Size x="160" y="32"/>
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentVideoOptionsButton" relativePoint="BOTTOM" x="0" y="-10"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="OptionsSelectFrame_AudioOptionsButton_OnClick"/>
+						</Scripts>
+					</Button>
+					<Button name="OptionsSelectResetSettingsButton" inherits="GlueDark_ButtonTemplate" text="RESET_SETTINGS" hidden="true">
+						<Size x="160" y="32"/>
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentAudioOptionsButton" relativePoint="BOTTOM" x="0" y="-10"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="OptionsSelectResetSettingsButton_OnClick_Reset"/>
+						</Scripts>
+					</Button>
+					<Button name="$parentCloseButton" inherits="GlueDark_ButtonTemplate" text="CLOSE">
+						<Size x="160" y="32"/>
+						<Anchors>
+							<Anchor point="BOTTOM" x="0" y="20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick function="OptionsSelectFrame_Hide"/>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad function="OptionsSelectFrame_OnLoad"/>
+			<OnShow>
+				PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
+			</OnShow>
+			<OnHide>
+				PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
+			</OnHide>
+			<OnKeyDown function="OptionsSelectFrame_OnKeyDown"/>
+		</Scripts>
+	</Frame>
+</Ui>
