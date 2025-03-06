@@ -1,0 +1,300 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+	<Script file="Custom_AuctionHouseSearchBar.lua"/>
+
+	<Button name="AuctionHouseSearchHistoryButton" virtual="true">
+		<Size x="206" y="27"/>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentSelectedTexture" parentKey="SelectedTexture" file="Interface\Common\Search">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+					<TexCoords left="0.001953" right="0.248047" top="0.617188" bottom="0.828125"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseSearchHistoryButtonMixin);
+			</OnLoad>
+			<OnClick>
+				self:OnClick(button);
+			</OnClick>
+			<OnEnter>
+				self:OnEnter();
+			</OnEnter>
+		</Scripts>
+		<NormalTexture parentKey="NormalTexture" file="Interface\Common\Search" horizTile="true">
+			<TexCoords top="0.007813" bottom="0.218750"/>
+		</NormalTexture>
+		<PushedTexture parentKey="PushedTexture" file="Interface\Common\Search" horizTile="true">
+			<TexCoords top="0.007813" bottom="0.218750"/>
+		</PushedTexture>
+		<ButtonText name="$parentText" parentKey="Text" inherits="GameFontNormalSmall" justifyH="LEFT">
+			<Size x="400" y="0"/>
+			<Anchors>
+				<Anchor point="LEFT" x="5" y="0"/>
+				<Anchor point="RIGHT" x="-5" y="0"/>
+			</Anchors>
+			<Color r="0.96875" g="0.8984375" b="0.578125" a="1"/>
+		</ButtonText>
+	</Button>
+
+	<EditBox name="AuctionHouseSearchBoxTemplate" autoFocus="false" letters="32" inherits="SearchBoxTemplate" virtual="true">
+		<Size x="241" y="22"/>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseSearchBoxMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnEnterPressed>
+				self:OnEnterPressed()
+			</OnEnterPressed>
+			<OnTabPressed>
+				self:OnTabPressed()
+			</OnTabPressed>
+			<OnEditFocusLost>
+				self:OnEditFocusLost()
+			</OnEditFocusLost>
+			<OnEditFocusGained>
+				self:OnEditFocusGained()
+			</OnEditFocusGained>
+			<OnTextChanged>
+				self:OnTextChanged(userInput)
+			</OnTextChanged>
+		</Scripts>
+	</EditBox>
+
+	<Button name="AuctionHouseFavoritesSearchButtonTemplate" inherits="SquareIconButtonTemplate" motionScriptsWhileDisabled="true" virtual="true">
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseFavoritesSearchButtonMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+			<OnEvent>
+				self:OnEvent(event, ...)
+			</OnEvent>
+		</Scripts>
+	</Button>
+
+	<EditBox name="AuctionHouseLevelRangeEditBoxTemplate" inherits="InputBoxTemplate" letters="3" numeric="true" autoFocus="false" virtual="true">
+		<Size x="28" y="16"/>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseLevelRangeEditBoxMixin)
+			</OnLoad>
+			<OnTextChanged>
+				self:OnTextChanged(userInput)
+			</OnTextChanged>
+			<OnEnter>
+				UIDropDownMenu_StopCounting(self:GetParent():GetParent())
+			</OnEnter>
+			<OnLeave>
+				UIDropDownMenu_StartCounting(self:GetParent():GetParent())
+			</OnLeave>
+		</Scripts>
+	</EditBox>
+
+	<Frame name="AuctionHouseLevelRangeFrameTemplate" inherits="UIDropDownCustomMenuEntryTemplate" virtual="true">
+		<Size x="80" y="22"/>
+		<Frames>
+			<EditBox name="$parentMinLevel" parentKey="MinLevel" inherits="AuctionHouseLevelRangeEditBoxTemplate">
+				<Anchors>
+					<Anchor point="LEFT" x="8" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString parentKey="Dash" inherits="GameFontHighlightSmall" text="-">
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="0" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</EditBox>
+			<EditBox name="$parentMaxLevel" parentKey="MaxLevel" inherits="AuctionHouseLevelRangeEditBoxTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentMinLevel" relativePoint="RIGHT" x="10" y="0"/>
+				</Anchors>
+			</EditBox>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseLevelRangeFrameMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+		</Scripts>
+	</Frame>
+
+	<Button name="AuctionHouseFilterButtonTemplate" inherits="UIMenuButtonStretchTemplate" text="FILTER" virtual="true">
+		<Size x="93" y="22"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" parentKey="Icon" file="Interface\ChatFrame\ChatFrameExpandArrow">
+					<Size x="10" y="12"/>
+					<Anchors>
+						<Anchor point="RIGHT" relativePoint="RIGHT" x="-5"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentClearFiltersButton" parentKey="ClearFiltersButton">
+				<Size x="23" y="23"/>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="TOPRIGHT" x="-3" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, AuctionHouseClearFiltersButtonMixin)
+
+						self.NormalTexture:SetAtlas("auctionhouse-ui-filter-redx")
+					</OnLoad>
+					<OnClick>
+						self:OnClick(button)
+					</OnClick>
+				</Scripts>
+				<NormalTexture parentKey="NormalTexture">
+					<Size x="23" y="23"/>
+				</NormalTexture>
+			</Button>
+			<Frame name="$parentDropDown" parentKey="DropDown" inherits="UIDropDownMenuTemplate"/>
+			<Frame name="$parentLevelRangeFrame" parentKey="LevelRangeFrame" inherits="AuctionHouseLevelRangeFrameTemplate"/>
+		</Frames>
+		<Scripts>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+			<OnLoad>
+				Mixin(self, AuctionHouseFilterButtonMixin)
+				self:OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Button>
+
+	<Button name="AuctionHouseSearchButtonTemplate" text="AUCTION_HOUSE_SEARCH_BUTTON" inherits="UIPanelButtonTemplate" virtual="true">
+		<Size x="132" y="22"/>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseSearchButtonMixin)
+			</OnLoad>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Frame name="AuctionHouseSearchBarTemplate" virtual="true">
+		<Size x="618" y="40"/>
+		<Frames>
+			<Button name="$parentFavoritesSearchButton" parentKey="FavoritesSearchButton" inherits="AuctionHouseFavoritesSearchButtonTemplate">
+				<Anchors>
+					<Anchor point="LEFT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<EditBox name="$parentSearchBox" parentKey="SearchBox" inherits="AuctionHouseSearchBoxTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentFavoritesSearchButton" relativePoint="RIGHT" x="9" y="0"/>
+				</Anchors>
+			</EditBox>
+			<Button name="$parentSearchButton" parentKey="SearchButton" inherits="AuctionHouseSearchButtonTemplate">
+				<Anchors>
+					<Anchor point="RIGHT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentFilterButton" parentKey="FilterButton" inherits="AuctionHouseFilterButtonTemplate">
+				<Size x="93" y="22"/>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentSearchButton" relativePoint="LEFT" x="-10" y="0"/>
+				</Anchors>
+			</Button>
+			<Frame name="$parentSearchHistory" parentKey="SearchHistory" hidden="true" virtual="true">
+				<Size x="206" y="27"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSearchBox" relativePoint="BOTTOMLEFT" x="2" y="1"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" parentKey="Background" file="Interface\Common\Search" horizTile="true">
+							<Anchors>
+								<Anchor point="TOPLEFT"/>
+								<Anchor point="BOTTOMRIGHT"/>
+							</Anchors>
+							<TexCoords top="0.007813" bottom="0.218750"/>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<Texture name="$parentBorderAnchor" parentKey="BorderAnchor" inherits="UI-Frame-BotCornerLeft">
+							<Anchors>
+								<Anchor point="LEFT" x="-7" y="0"/>
+								<Anchor point="BOTTOM" x="0" y="-5"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentBotRightCorner" parentKey="BotRightCorner" inherits="UI-Frame-BotCornerRight">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parentBorderAnchor" x="0" y="0"/>
+								<Anchor point="RIGHT" x="4" y="0"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentBottomBorder" parentKey="BottomBorder" inherits="_UI-Frame-Bot">
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" relativeTo="$parentBorderAnchor" relativePoint="BOTTOMRIGHT" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="BOTTOMLEFT" y="0"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentLeftBorder" parentKey="LeftBorder" inherits="!UI-Frame-LeftTile">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="1" />
+								<Anchor point="BOTTOMLEFT" relativeTo="$parentBorderAnchor" relativePoint="TOPLEFT"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentRightBorder" parentKey="RightBorder" inherits="!UI-Frame-RightTile">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="1" />
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="TOPRIGHT" x="1" y="0"/>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentTopBorder" parentKey="TopBorder" inherits="_UI-Frame-Bot">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="-2" y="3"/>
+								<Anchor point="BOTTOMRIGHT" relativePoint="TOPRIGHT" x="2" y="-3"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, AuctionHouseSearchHistoryMixin);
+						self:OnLoad();
+					</OnLoad>
+					<OnShow>
+						self:OnShow();
+					</OnShow>
+					<OnHide>
+						self:OnHide();
+					</OnHide>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, AuctionHouseSearchBarMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+		</Scripts>
+	</Frame>
+</Ui>
