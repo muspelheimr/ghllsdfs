@@ -1,0 +1,100 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="UIPanelCustomTemplates.lua"/>
+
+	<Button name="StoreGoldButtonCustomTemplate" virtual="true">
+		<Size x="40" y="22"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentLeft" parentKey="Left">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRight" parentKey="Right">
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+				</Texture>
+				<Texture parentKey="Middle">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				if ( self:IsEnabled() ~= 1 ) then
+					self.Left:SetAtlas("store-button-disabled-left", true)
+					self.Middle:SetAtlas("store-button-disabled-middle", true)
+					self.Right:SetAtlas("store-button-disabled-right", true)
+				else
+					self.Left:SetAtlas("store-button-up-left", true)
+					self.Middle:SetAtlas("store-button-up-middle", true)
+					self.Right:SetAtlas("store-button-up-right", true)
+				end
+			</OnLoad>
+			<OnMouseDown>
+				if ( self:IsEnabled() == 1 ) then
+					self.Left:SetAtlas("store-button-down-left")
+					self.Middle:SetAtlas("store-button-down-middle")
+					self.Right:SetAtlas("store-button-down-right")
+				end
+			</OnMouseDown>
+			<OnMouseUp>
+				if ( self:IsEnabled() == 1 ) then
+					self.Left:SetAtlas("store-button-up-left")
+					self.Middle:SetAtlas("store-button-up-middle")
+					self.Right:SetAtlas("store-button-up-right")
+				end
+			</OnMouseUp>
+			<OnDisable>
+				self.Left:SetAtlas("store-button-disabled-left")
+				self.Middle:SetAtlas("store-button-disabled-middle")
+				self.Right:SetAtlas("store-button-disabled-right")
+			</OnDisable>
+			<OnEnable>
+				self.Left:SetAtlas("store-button-up-left")
+				self.Middle:SetAtlas("store-button-up-middle")
+				self.Right:SetAtlas("store-button-up-right")
+			</OnEnable>
+		</Scripts>
+		<ButtonText parentKey="Text">
+			<Anchors>
+				<Anchor point="CENTER" y="3"/>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="Shared_GameFontNormalLarge"/>
+		<HighlightFont style="Shared_GameFontHighlightLarge"/>
+		<DisabledFont style="Shared_GameFontDisableLarge"/>
+		<HighlightTexture file="Interface\Buttons\UI-Panel-Button-Highlight" alphaMode="ADD">
+			<TexCoords left="0" right="0.625" top="0" bottom="0.6875"/>
+		</HighlightTexture>
+	</Button>
+
+	<Button name="UIPanelButtonChallengeStateHandlerTemplate" virtual="true">
+		<Frames>
+			<Frame parentKey="Controller">
+				<Scripts>
+					<OnLoad>
+						Mixin(self, UIPanelButtonChallengeStateHandlerMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnEvent>
+						self:OnEvent(event, ...)
+					</OnEvent>
+					<OnShow>
+						self:OnShow()
+					</OnShow>
+					<OnHide>
+						self:OnHide()
+					</OnHide>
+				</Scripts>
+			</Frame>
+		</Frames>
+	</Button>
+</Ui>
