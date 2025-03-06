@@ -1,0 +1,854 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="StaticPopup.lua"/>
+	<Button name="StaticPopupButtonTemplate" virtual="true">
+		<Size x="128" y="21"/>
+		<Scripts>
+			<OnClick>
+				StaticPopup_OnClick(self:GetParent(), self:GetID());
+			</OnClick>
+		</Scripts>
+		<ButtonText name="$parentText" parentKey="Text">
+			<Anchors>
+				<Anchor point="CENTER">
+					<Offset x="0" y="1"/>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalTexture file="Interface\Buttons\UI-DialogBox-Button-Up">
+			<TexCoords left="0.0" right="1.0" top="0.0" bottom="0.71875"/>
+		</NormalTexture>
+		<PushedTexture file="Interface\Buttons\UI-DialogBox-Button-Down">
+			<TexCoords left="0.0" right="1.0" top="0.0" bottom="0.71875"/>
+		</PushedTexture>
+		<DisabledTexture file="Interface\Buttons\UI-DialogBox-Button-Disabled">
+			<TexCoords left="0.0" right="1.0" top="0.0" bottom="0.71875"/>
+		</DisabledTexture>
+		<HighlightTexture file="Interface\Buttons\UI-DialogBox-Button-Highlight" alphaMode="ADD">
+			<TexCoords left="0.0" right="1.0" top="0.0" bottom="0.71875"/>
+		</HighlightTexture>
+		<NormalFont style="GameFontNormal"/>
+		<DisabledFont style="GameFontDisable"/>
+		<HighlightFont style="GameFontHighlight"/>
+	</Button>
+	<Frame name="StaticPopUpLeftPlayerFrameTemplate" virtual="true">
+		<Size x="120" y="16"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentPlayerName" parentKey="PlayerName" inherits="GameFontNormal12" justifyH="LEFT" text="LlimpintLlimpint">
+					<Size x="100" y="16"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="LEFT" x="18" y="0" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentClassIcon" parentKey="ClassIcon">
+				<Size x="14" y="14"/>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentIcon" parentKey="Icon"/>
+					</Layer>
+				</Layers>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT" x="0" y="0" />
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GameTooltip:SetText(self.className)
+						GameTooltip:Show()
+					</OnEnter>
+					<OnLeave function="GameTooltip_Hide"/>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				if not self:GetParent().playerLeftButtons then
+					self:GetParent().playerLeftButtons = {}
+				end
+
+				self:GetParent().playerLeftButtons[#self:GetParent().playerLeftButtons + 1] = self
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="StatisPopUpRightPlayerFrameTemplate" virtual="true">
+		<Size x="120" y="16"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentPlayerName" parentKey="PlayerName" inherits="GameFontNormal12" justifyH="RIGHT" text="LlimpintLlimpint">
+					<Size x="100" y="16"/>
+					<Anchors>
+						<Anchor point="RIGHT" relativePoint="RIGHT" x="-18" y="0" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentClassIcon" parentKey="ClassIcon">
+				<Size x="14" y="14"/>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentIcon" parentKey="Icon"/>
+					</Layer>
+				</Layers>
+				<Anchors>
+					<Anchor point="RIGHT" relativePoint="RIGHT" x="0" y="0" />
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GameTooltip:SetText(self.className)
+						GameTooltip:Show()
+					</OnEnter>
+					<OnLeave function="GameTooltip_Hide"/>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				if not self:GetParent().playerRightButtons then
+					self:GetParent().playerRightButtons = {}
+				end
+
+				self:GetParent().playerRightButtons[#self:GetParent().playerRightButtons + 1] = self
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<Button name="EquipmentSetButtonTemplate" virtual="true">
+		<Size x="158" y="40"/>
+		<Frames>
+			<Button name="$parentIconFrame" parentKey="IconFrame">
+				<Size x="38" y="38"/>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentIconTexture" parentKey="icon" file="Interface\ICONS\INV_Misc_QuestionMark"/>
+					</Layer>
+					<Layer level="OVERLAY">
+						<Texture parentKey="IconBorder" file="Interface\Common\WhiteIconFrame" hidden="true">
+							<Size x="38" y="38"/>
+							<Anchors>
+								<Anchor point="CENTER"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnEnter>
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GameTooltip:SetEquipmentSet(self.name)
+						GameTooltip:Show()
+					</OnEnter>
+					<OnLeave function="GameTooltip_Hide"/>
+				</Scripts>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT" x="0" y="0" />
+				</Anchors>
+				<NormalTexture name="$parentNormalTexture" file="Interface\Buttons\UI-Quickslot2">
+					<Size x="64" y="64"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="-1"/>
+					</Anchors>
+				</NormalTexture>
+				<PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+				<HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+			</Button>
+			<Frame name="$parentNameFrame" parentKey="NameFrame">
+				<Size x="118" y="36"/>
+				<Anchors>
+					<Anchor point="LEFT" x="40" y="0" />
+				</Anchors>
+				<Layers>
+					<Layer level="BORDER">
+						<Texture name="$parentBackground" parentKey="Background" file="Interface\QuestFrame\UI-QuestItemNameFrame">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="-12" y="14" />
+								<Anchor point="BOTTOMRIGHT" x="12" y="-14" />
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="ARTWORK">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormal" justifyH="LEFT" text="GameFontNormal">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="6" y="0" />
+								<Anchor point="BOTTOMRIGHT" x="-22" y="0" />
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Button>
+
+	<Frame name="BootPlayerPVPStatCellTemplate" virtual="true">
+		<Size x="100" y="0"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" x="0" y="0"/>
+			<Anchor point="BOTTOM" x="0" y="0"/>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentLabel" parentKey="Label" inherits="GameFontNormalSmall" justifyH="CENTER" justifyV="MIDDLE">
+					<Size x="0" y="30"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="0"/>
+						<Anchor point="TOPRIGHT" x="0" y="0"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentValue" parentKey="Value" inherits="GameFontNormalSmall" justifyH="CENTER" justifyV="MIDDLE">
+					<Size x="0" y="30"/>
+					<Anchors>
+						<Anchor point="BOTTOM" x="0" y="0"/>
+					</Anchors>
+					<Color r="1" g="1" b="1"/>
+				</FontString>
+				<Texture name="$parentIcon" parentKey="Icon">
+					<Size x="16" y="16"/>
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentValue" relativePoint="LEFT" x="0" y="-1"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, BootPlayerPVPStatCellMixin)
+			</OnLoad>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+		</Scripts>
+	</Frame>
+
+	<Button name="StatisPopupSpellButtonTemplate" virtual="true">
+		<Size x="32" y="32"/>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentIcon" parentKey="Icon">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="2" y="-2"/>
+						<Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+					</Anchors>
+					<TexCoords left="0.08" right="0.92" top="0.08" bottom="0.92"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentBorder" parentKey="Border" setAllPoints="true"/>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, StatusPopupZodiacSpellButtonMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Frame name="StaticPopupTemplate" toplevel="true" enableKeyboard="true" enableMouse="true" frameStrata="DIALOG" hidden="true" virtual="true">
+		<Size x="320" y="72"/>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentText"  parentKey="text" inherits="GameFontHighlight">
+					<Size x="290" y="0"/>
+					<Anchors>
+						<Anchor point="TOP" x="0" y="-16"/>
+					</Anchors>
+				</FontString>
+				<Texture parentKey="AlertIcon" name="$parentAlertIcon">
+					<Size x="48" y="48"/>
+					<Anchors>
+						<Anchor point="LEFT" x="24" y="0"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentExtraFrame" parentKey="extraFrame" enableMouse="true"/>
+			<Button name="$parentCloseButton" parentKey="CloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-3" y="-3"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentButton1" inherits="StaticPopupButtonTemplate" parentKey="button1" id="1"/>
+			<Button name="$parentButton2" inherits="StaticPopupButtonTemplate" parentKey="button2" id="2"/>
+			<Button name="$parentButton3" inherits="StaticPopupButtonTemplate" parentKey="button3" id="3"/>
+			<EditBox name="$parentEditBox" historyLines="1" hidden="true" inherits="AutoCompleteEditBoxTemplate">
+				<Size x="130" y="32"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="45"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size x="75" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" x="-10" y="0"/>
+							</Anchors>
+							<TexCoords left="0" right="0.29296875" top="0" bottom="1.0"/>
+						</Texture>
+						<Texture name="$parentRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size x="75" y="32"/>
+							<Anchors>
+								<Anchor point="RIGHT" x="10" y="0"/>
+							</Anchors>
+							<TexCoords left="0.70703125" right="1.0" top="0" bottom="1.0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnEnterPressed>
+						StaticPopup_EditBoxOnEnterPressed(self);
+					</OnEnterPressed>
+					<OnEscapePressed>
+						StaticPopup_EditBoxOnEscapePressed(self);
+					</OnEscapePressed>
+					<OnTextChanged>
+						StaticPopup_EditBoxOnTextChanged(self, userInput);
+					</OnTextChanged>
+					<OnLoad>
+						self:GetParent().editBox = self;
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal"/>
+			</EditBox>
+			<EditBox name="$parentWideEditBox" historyLines="1" hidden="true" inherits="AutoCompleteEditBoxTemplate">
+				<Size x="350" y="14"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="50"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentTopLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size x="256" y="15"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="-10" y="8"/>
+							</Anchors>
+							<TexCoords left="0" right="1.0" top="1.0" bottom="0.49"/>
+						</Texture>
+						<Texture name="$parentBottomLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left" hidden="false">
+							<Size x="256" y="15"/>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" x="-10" y="-8"/>
+							</Anchors>
+							<TexCoords left="0" right="1.0" top="0.51" bottom="1.0"/>
+						</Texture>
+						<Texture name="$parentLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopLeft" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottomLeft" relativePoint="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+							<TexCoords left="0" right="1.0" top="0.49" bottom="0.51"/>
+						</Texture>
+						<Texture name="$parentTopRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size x="75" y="15"/>
+							<Anchors>
+								<Anchor point="TOPRIGHT" x="10" y="8"/>
+							</Anchors>
+							<TexCoords left="0.70703125" right="1.0" top="1.0" bottom="0.49"/>
+						</Texture>
+						<Texture name="$parentBottomRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size x="75" y="15"/>
+							<Anchors>
+								<Anchor point="BOTTOMRIGHT" x="10" y="-8"/>
+							</Anchors>
+							<TexCoords left="0.70703125" right="1.0" top="0.51" bottom="1.0"/>
+						</Texture>
+						<Texture name="$parentRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopRight" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottomRight" relativePoint="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+							<TexCoords left="0.70703125" right="1.0" top="0.49" bottom="0.51"/>
+						</Texture>
+						<Texture name="$parentTop" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size x="5" y="15"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentTopLeft" relativePoint="RIGHT" x="0" y="0"/>
+								<Anchor point="RIGHT" relativeTo="$parentTopRight" relativePoint="LEFT" x="0" y="0"/>
+							</Anchors>
+							<TexCoords left="0.29296875" right="1.0" top="1.0" bottom="0.49"/>
+						</Texture>
+						<Texture name="$parentBottom" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size x="5" y="15"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentBottomLeft" relativePoint="RIGHT" x="0" y="0"/>
+								<Anchor point="RIGHT" relativeTo="$parentBottomRight" relativePoint="LEFT" x="0" y="0"/>
+							</Anchors>
+							<TexCoords left="0.29296875" right="1.0" top="0.51" bottom="1.0"/>
+						</Texture>
+						<Texture name="$parentCenter" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTop" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottom" relativePoint="TOPRIGHT" x="0" y="0"/>
+							</Anchors>
+							<TexCoords left="0.29296875" right="1.0" top="0.49" bottom="0.51"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnEnterPressed>
+						StaticPopup_EditBoxOnEnterPressed(self);
+					</OnEnterPressed>
+					<OnEscapePressed>
+						StaticPopup_EditBoxOnEscapePressed(self);
+					</OnEscapePressed>
+					<OnTextChanged>
+						StaticPopup_EditBoxOnTextChanged(self, userInput);
+					</OnTextChanged>
+					<OnLoad>
+						self:GetParent().wideEditBox = self;
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal"/>
+			</EditBox>
+			<Frame name="$parentMoneyFrame" inherits="SmallMoneyFrameTemplate" hidden="true">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentText" relativePoint="BOTTOM" x="0" y="-5"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						SmallMoneyFrame_OnLoad(self);
+						MoneyFrame_SetType(self, "STATIC");
+						self:GetParent().moneyFrame = self;
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<Frame name="$parentMoneyInputFrame" inherits="MoneyInputFrameTemplate">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentText" relativePoint="BOTTOM" x="0" y="-5"/>
+				</Anchors>
+			</Frame>
+			<Button parentKey="ItemFrame" name="$parentItemFrame" inherits="ItemButtonTemplate" hidden="true">
+				<Size x="37" y="37"/>
+				<Anchors>
+					<Anchor point="BOTTOM" relativeTo="$parentButton1" relativePoint="TOP" x="0" y="8"/>
+					<Anchor point="LEFT" x="70" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="$parentNameFrame" file="Interface\QuestFrame\UI-QuestItemNameFrame">
+							<Size x="164" y="62"/>
+							<Anchors>
+								<Anchor point="LEFT" x="30" y="0"/>
+							</Anchors>
+						</Texture>
+						<FontString parentKey="Text" name="$parentText" inherits="GameFontNormal" justifyH="LEFT">
+							<Size x="125" y="38"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="10" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnEnter>
+						if ( self.link ) then
+							GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+							GameTooltip:SetHyperlink(self.link);
+						end
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide();
+					</OnLeave>
+					<OnLoad>
+						self:GetParent().itemFrame = self;
+					</OnLoad>
+				</Scripts>
+			</Button>
+			<Frame name="$parentHelpBox" parentKey="HelpBox" inherits="GlowBoxTemplate" hidden="true">
+				<Size x="370" y="30"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString parentKey="Text" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Anchors>
+					<Anchor point="TOP"	relativeTo="$parent" relativePoint="BOTTOM" x="0" y="-4" />
+				</Anchors>
+			</Frame>
+			<CheckButton name="$parentCheckButton" parentKey="CheckButton" inherits="UICheckButtonArtTemplate" hidden="true">
+				<Size x="26" y="26"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="43"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="$parentButtonText" parentKey="ButtonText" inherits="Shared_GameFontNormal" justifyH="LEFT" justifyV="MIDDLE" maxLines="2">
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="0" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, StaticPopupCheckButtonMixin)
+					</OnLoad>
+					<OnEnable>
+						self:OnEnable()
+					</OnEnable>
+					<OnDisable>
+						self:OnDisable()
+					</OnDisable>
+					<OnShow>
+						self:OnShow()
+					</OnShow>
+					<OnEnter>
+						self:OnEnter()
+					</OnEnter>
+					<OnLeave>
+						self:OnLeave()
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+			<Frame name="$parentRadioButtonHolder" parentKey="RadioButtonHolder" hidden="true">
+				<Size x="1" y="1"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="43"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, StaticPopupRadioButtonHolderMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnShow>
+						self:OnShow()
+					</OnShow>
+				</Scripts>
+			</Frame>
+			<StatusBar name="$parentStatusBar" hidden="true" parentKey="bar">
+				<Size x="400" y="13"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" x="0" y="4" />
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture>
+							<Size x="400" y="13"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0" />
+							</Anchors>
+							<Color r="0" g="0" b="0" a="0.5"/>
+						</Texture>
+					</Layer>
+					<Layer level="ARTWORK">
+						<FontString name="$parentTimeText" inherits="GameFontHighlight" justifyH="CENTER" parentKey="timeText" text="00:00:00">
+							<Size x="0" y="9"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="1.5"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+					<Layer level="OVERLAY">
+						<Texture name="$parentBorder" file="Interface\COMMON\StaticPopup_TimerBorder">
+							<Size x="465" y="64"/>
+							<Anchors>
+								<Anchor point="TOP" x="2" y="25"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar">
+					<Size x="400" y="13"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0" />
+					</Anchors>
+				</BarTexture>
+				<BarColor r="1" g="0.0" b="0.0" />
+			</StatusBar>
+			<Button name="$parentButtonSpecific" parentKey="ButtonSpecific" inherits="UIPanelButtonTemplate" hidden="true">
+				<Size x="200" y="20"/>
+				<Anchors>
+					<Anchor point="BOTTOM" relativePoint="TOP" x="0" y="0" />
+				</Anchors>
+			</Button>
+			<Frame name="$parentReplayInfoFrame" parentKey="ReplayInfoFrame" hidden="false">
+				<Size x="306" y="88"/>
+				<Anchors>
+					<Anchor point="CENTER" x="0" y="0" />
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBackground" alpha="0.5" parentKey="Background">
+							<Size x="233" y="100"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="10" />
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="BORDER">
+						<FontString name="$parentTitle" parentKey="Title" inherits="GameFontNormal15" text="WATCH_ARENA_REPLAY">
+							<Size x="300" y="20"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="26" />
+							</Anchors>
+						</FontString>
+					</Layer>
+					<Layer level="BORDER">
+						<Texture name="$parentTopBackground" parentKey="TopBackground">
+							<Size y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="4" y="0" />
+								<Anchor point="TOPRIGHT" x="-4" y="0" />
+							</Anchors>
+							<Color r="0.4" g="0.4" b="0.4" a="0"/>
+						</Texture>
+						<Texture name="$parentBottomBackground" parentKey="BottomBackground">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentTopBackground" relativePoint="BOTTOMLEFT" x="0" y="-2" />
+								<Anchor point="BOTTOMRIGHT" x="-4" y="0" />
+							</Anchors>
+							<Color r="0.4" g="0.4" b="0.4" a="0"/>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="$parentResultLeft" parentKey="ResultLeft" inherits="Fancy16Font" justifyH="LEFT" text="VICTORY_TEXT_ARENA_DRAW">
+							<Size x="100" y="16"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentTopBackground" relativePoint="LEFT" x="10" y="1" />
+							</Anchors>
+							<Color r="1.0" g="0.82" b="0"/>
+						</FontString>
+						<FontString name="$parentResultRight" parentKey="ResultRight" inherits="Fancy15Font" justifyH="RIGHT" text="VICTORY_TEXT_ARENA_DRAW">
+							<Size x="100" y="16"/>
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parentTopBackground" relativePoint="RIGHT" x="-10" y="1" />
+							</Anchors>
+							<Color r="1.0" g="0.82" b="0"/>
+						</FontString>
+						<FontString name="$parentVSLabel" parentKey="VSLabel" inherits="GameFontNormal" justifyH="CENTER" text="vs">
+							<Size x="24" y="16"/>
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="$parentTopBackground" relativePoint="CENTER" x="0" y="1" />
+							</Anchors>
+						</FontString>
+						<FontString name="$parentRatingLeft" parentKey="RatingLeft" inherits="GameFontNormal" justifyH="RIGHT" text="2513">
+							<Size x="60" y="16"/>
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parentVSLabel" relativePoint="LEFT" x="0" y="0" />
+							</Anchors>
+						</FontString>
+						<FontString name="$parentRatingRight" parentKey="RatingRight" inherits="GameFontNormal" justifyH="LEFT" text="2513">
+							<Size x="60" y="16"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentVSLabel" relativePoint="RIGHT" x="0" y="0" />
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="$parentPlayerLeft1" inherits="StaticPopUpLeftPlayerFrameTemplate" parentKey="PlayerLeft1">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parentBottomBackground" x="14" y="-2" />
+						</Anchors>
+					</Frame>
+					<Frame name="$parentPlayerLeft2" inherits="StaticPopUpLeftPlayerFrameTemplate" parentKey="PlayerLeft2">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentPlayerLeft1" relativePoint="BOTTOM" x="0" y="-4" />
+						</Anchors>
+					</Frame>
+					<Frame name="$parentPlayerLeft3" inherits="StaticPopUpLeftPlayerFrameTemplate" parentKey="PlayerLeft3">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentPlayerLeft2" relativePoint="BOTTOM" x="0" y="-4" />
+						</Anchors>
+					</Frame>
+					<Frame name="$parentPlayerRight1" inherits="StatisPopUpRightPlayerFrameTemplate" parentKey="PlayerRight1">
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativeTo="$parentBottomBackground" x="-16" y="-2" />
+						</Anchors>
+					</Frame>
+					<Frame name="$parentPlayerRight2" inherits="StatisPopUpRightPlayerFrameTemplate" parentKey="PlayerRight2">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentPlayerRight1" relativePoint="BOTTOM" x="0" y="-4" />
+						</Anchors>
+					</Frame>
+					<Frame name="$parentPlayerRight3" inherits="StatisPopUpRightPlayerFrameTemplate" parentKey="PlayerRight3">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentPlayerRight2" relativePoint="BOTTOM" x="0" y="-4" />
+						</Anchors>
+					</Frame>
+				</Frames>
+				<Scripts>
+					<OnLoad>
+						self.Background:SetAtlas("PVPLadder-header-swords")
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<Frame name="$parentBootPlayerPVPStatsFrame" parentKey="BootPlayerPVPStatsFrame" hidden="true">
+				<Size x="0" y="80"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="-1" y="4"/>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" x="1" y="4"/>
+				</Anchors>
+				<Frames>
+					<Frame name="$parentBorder" parentKey="Border" inherits="TranslucentFrameTemplate" setAllPoints="true"/>
+					<Frame name="$parentContainer" parentKey="Container" enableMouse="true" hidden="true">
+						<Anchors>
+							<Anchor point="TOPLEFT" x="10" y="-11"/>
+							<Anchor point="BOTTOMRIGHT" x="-10" y="11"/>
+						</Anchors>
+						<Layers>
+							<Layer level="BACKGROUND">
+								<Texture name="$parentBackground" file="Interface\FrameGeneral\UI-Background-Marble" horizTile="true" vertTile="true" parentKey="Background">
+									<Anchors>
+										<Anchor point="TOPLEFT" x="-2" y="2"/>
+										<Anchor point="BOTTOMRIGHT" x="2" y="-2"/>
+									</Anchors>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+				</Frames>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, StaticPopupBootPlayerPVPStatsMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnEvent>
+						self:OnEvent(event, ...)
+					</OnEvent>
+					<OnUpdate>
+						self:OnUpdate(elapsed)
+					</OnUpdate>
+					<OnHide>
+						self:OnHide()
+					</OnHide>
+				</Scripts>
+			</Frame>
+			<Frame name="$parentDelayCountdownFrame" parentKey="DelayCountdownFrame" hidden="true">
+				<Scripts>
+					<OnLoad>
+						Mixin(self, StatusPopupDelayCountdownMixin)
+					</OnLoad>
+					<OnHide>
+						self:OnHide()
+					</OnHide>
+				</Scripts>
+			</Frame>
+			<Frame name="$parentZodiacSpellFrame" parentKey="ZodiacSpellFrame" enableMouse="true" hidden="true">
+				<Size x="0" y="130"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="-1" y="4"/>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" x="1" y="4"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="$parentSpellsLabel" parentKey="SpellsLabel" inherits="SystemFont_Shadow_Med3" text="ZODIAC_SPELLS_LABEL">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-15"/>
+							</Anchors>
+							<Color r="1" g="1" b="1"/>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="$parentBorder" parentKey="Border" inherits="TranslucentFrameTemplate" setAllPoints="true"/>
+					<Frame name="$parentActiveSpells" parentKey="ActiveSpells">
+						<Size x="0" y="52"/>
+						<Anchors>
+							<Anchor point="TOP" relativeTo="$parentSpellsLabel" relativePoint="BOTTOM" x="0" y="-10"/>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="$parentLabel" parentKey="Label" inherits="SystemFont_Shadow_Med1" justifyH="LEFT" text="SPELLS_ACTIVE">
+									<Anchors>
+										<Anchor point="LEFT" x="0" y="0"/>
+									</Anchors>
+									<Color r="1" g="1" b="1"/>
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
+					<Frame name="$parentPassiveSpells" parentKey="PassiveSpells">
+						<Size x="0" y="52"/>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parentActiveSpells" relativePoint="BOTTOMLEFT" x="0" y="-10"/>
+						</Anchors>
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="$parentLabel" parentKey="Label" inherits="SystemFont_Shadow_Med1" justifyH="LEFT" text="SPELLS_PASSIVE">
+									<Anchors>
+										<Anchor point="LEFT" x="0" y="0"/>
+									</Anchors>
+									<Color r="1" g="1" b="1"/>
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
+				</Frames>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, StatusPopupZodiacSpellMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnShow>
+						self:OnShow()
+					</OnShow>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				StaticPopup_OnUpdate(self, elapsed);
+			</OnUpdate>
+			<OnEvent function="StaticPopup_OnEvent" />
+			<OnShow>
+				StaticPopup_OnShow(self);
+			</OnShow>
+			<OnHide>
+				StaticPopup_OnHide(self);
+			</OnHide>
+			<OnLoad function="StaticPopup_OnLoad"/>
+		</Scripts>
+	</Frame>
+	<Frame name="StaticPopup1" inherits="StaticPopupTemplate" parent="UIParent" id="1">
+		<Anchors>
+			<Anchor point="TOP" x="0" y="-135"/>
+		</Anchors>
+	</Frame>
+	<Frame name="StaticPopup2" inherits="StaticPopupTemplate" parent="UIParent" id="2">
+		<Anchors>
+			<Anchor point="TOP" relativeTo="StaticPopup1" relativePoint="BOTTOM"/>
+		</Anchors>
+	</Frame>
+	<Frame name="StaticPopup3" inherits="StaticPopupTemplate" parent="UIParent" id="3">
+		<Anchors>
+			<Anchor point="TOP" relativeTo="StaticPopup2" relativePoint="BOTTOM"/>
+		</Anchors>
+	</Frame>
+	<Frame name="StaticPopup4" inherits="StaticPopupTemplate" parent="UIParent" id="4">
+		<Anchors>
+			<Anchor point="TOP" relativeTo="StaticPopup3" relativePoint="BOTTOM"/>
+		</Anchors>
+	</Frame>
+</Ui>
