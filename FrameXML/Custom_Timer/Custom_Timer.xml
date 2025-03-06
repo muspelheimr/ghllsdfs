@@ -1,0 +1,320 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+	<Script file="Custom_Timer.lua"/>
+
+	<Frame name="StartTimerBar" virtual="true" hidden="true">
+		<Size x="206" y="26"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentDigit1" parentKey="digit1" alpha="0">
+					<Animations>
+						<AnimationGroup parentKey="startNumbers">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="-1" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="2"/>
+							<Scale scaleX="4" scaleY="4" duration="0.3" smoothing="OUT" order="3"/>
+							<Scale parentKey="ScaleOut" startDelay="0.6" scaleX="1.2" scaleY="1.2" duration="0.1" order="4"/>
+							<Alpha parentKey="AlphaOut" startDelay="0.6" change="-1.0" duration="0.1" order="4"/>
+							<Scripts>
+								<OnPlay>
+									local frame = self:GetParent():GetParent()
+									StartTimer_SetTexNumbers(frame, frame.digit1, frame.digit2)
+								</OnPlay>
+								<OnFinished>
+									local frame = self:GetParent():GetParent()
+									StartTimer_NumberAnimOnFinished(frame)
+								</OnFinished>
+							</Scripts>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+				<Texture name="$parentDigit2" parentKey="digit2" alpha="0">
+					<Animations>
+						<AnimationGroup parentKey="startNumbers">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="-1" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="2"/>
+							<Scale scaleX="4" scaleY="4" duration="0.3" smoothing="OUT" order="3"/>
+							<Scale parentKey="ScaleOut" startDelay="0.6" scaleX="1.2" scaleY="1.2" duration="0.1" order="4"/>
+							<Alpha parentKey="AlphaOut" startDelay="0.6" change="-1.0" duration="0.1" order="4"/>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+				<Texture name="$parentGoTexture" parentKey="GoTexture" alpha="0">
+					<Size x="256" y="256"/>
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="UIParent" x="0" y="0"/>
+					</Anchors>
+					<Animations>
+						<AnimationGroup parentKey="GoTextureAnim">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="2"/>
+							<Scale scaleX="4" scaleY="4" duration="0.4" smoothing="OUT" order="3"/>
+							<Scale startDelay="0.6" scaleX="1.4" scaleY="1.4" duration="0.2" smoothing="OUT" order="4"/>
+							<Alpha startDelay="0.6" change="-1.0" duration="0.2" smoothing="OUT" order="4"/>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentGlow1" parentKey="glow1" alpha="0">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentDigit1" x="0" y="0"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentDigit1" x="0" y="0"/>
+					</Anchors>
+					<Animations>
+						<AnimationGroup parentKey="startNumbers">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="1"/>
+							<Scale scaleX="4" scaleY="4" duration="0.3" smoothing="OUT" order="2"/>
+							<Alpha change="-1.0" duration="0.3" smoothing="IN" order="2"/>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+				<Texture name="$parentGlow2" parentKey="glow2" alpha="0">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentDigit2" x="0" y="0"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentDigit2" x="0" y="0"/>
+					</Anchors>
+					<Animations>
+						<AnimationGroup parentKey="startNumbers">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="1"/>
+							<Scale scaleX="4" scaleY="4" duration="0.3" smoothing="OUT" order="2"/>
+							<Alpha change="-1.0" duration="0.3" smoothing="IN" order="2"/>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+				<Texture name="$parentGoTextureGlow" parentKey="GoTextureGlow" alpha="0">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentGoTexture" x="0" y="0"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentGoTexture" x="0" y="0"/>
+					</Anchors>
+					<Animations>
+						<AnimationGroup parentKey="GoTextureAnim">
+							<Scale scaleX="0.25" scaleY="0.25" duration="0.0" order="1"/>
+							<Alpha change="1" duration="0.0" order="2"/>
+							<Scale scaleX="4" scaleY="4" duration="0.4" smoothing="OUT" order="3"/>
+							<Alpha change="-1.0" duration="0.4" smoothing="IN" order="3"/>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<StatusBar name="$parentStatusBar" parentKey="bar">
+				<Size x="195" y="13"/>
+				<Anchors>
+					<Anchor point="TOP" x="0" y="-2"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture>
+							<Size x="195" y="13"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-2"/>
+							</Anchors>
+							<Color r="0" g="0" b="0" a="0.5"/>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<Texture name="$parentBorder" file="Interface\CastingBar\UI-CastingBar-Border">
+							<Size x="256" y="64"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="25"/>
+							</Anchors>
+						</Texture>
+						<FontString name="$parentTimeText" inherits="GameFontHighlight" justifyH="CENTER" parentKey="timeText">
+							<Size x="0" y="9"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="1" g="0.0" b="0.0" />
+				<Animations>
+					<AnimationGroup parentKey="fadeBarIn">
+						<Alpha change="-1" duration="0" order="1"/>
+						<Alpha change="1.0" duration="1.9" order="2"/>
+						<Scripts>
+							<OnPlay>
+								local frame = self:GetParent();
+								frame:SetAlpha(0)
+							</OnPlay>
+							<OnFinished>
+								local frame = self:GetParent();
+								frame:SetAlpha(1)
+								frame:Show()
+							</OnFinished>
+						</Scripts>
+					</AnimationGroup>
+					<AnimationGroup parentKey="fadeBarOut">
+						<Alpha change="-1.0" duration="0.9" order="1"/>
+						<Scripts>
+							<OnFinished>
+								local frame = self:GetParent():GetParent();
+								frame.bar:Hide()
+								-- Subtract this animations time
+								frame.time = frame.time - 1
+								frame.startNumbers:Play();
+							</OnFinished>
+						</Scripts>
+					</AnimationGroup>
+				</Animations>
+			</StatusBar>
+		</Frames>
+		<Scripts>
+			<OnLoad function="StartTimer_OnLoad"/>
+			<OnShow function="StartTimer_OnShow"/>
+		</Scripts>
+	</Frame>
+
+	<Frame name="TimerTracker" parent="UIParent" setAllPoints="true" hidden="true">
+		<Scripts>
+			<OnLoad function="TimerTracker_OnLoad"/>
+			<OnEvent function="TimerTracker_OnEvent"/>
+		</Scripts>
+	</Frame>
+
+	<CheckButton name="TimerTracker_ReadyStatusButton" parent="UIParent" frameStrata="LOW" toplevel="true" hidden="true">
+		<Size x="210" y="56"/>
+		<Animations>
+			<AnimationGroup parentKey="AnimIn">
+				<Alpha change="-1" duration="0" order="1"/>
+				<Alpha change="1" duration="0.9" order="2"/>
+				<Scripts>
+					<OnPlay>
+						self:GetParent():SetAlpha(0)
+					</OnPlay>
+				</Scripts>
+			</AnimationGroup>
+			<AnimationGroup parentKey="AnimOut">
+				<Alpha change="-1" duration="0.9" order="1"/>
+				<Scripts>
+					<OnFinished>
+						self:GetParent():Hide()
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="Background" file="Interface\Common\bluemenu-main">
+					<Size x="210" y="56"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0"/>
+					</Anchors>
+					<TexCoords left="0.00390625" right="0.87890625" top="0.75195313" bottom="0.83007813"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<FontString name="$parentReadyText" parentKey="ReadyText" inherits="GameFontNormalHuge" text="READY_LABEL">
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="6"/>
+					</Anchors>
+					<Color r="0.8" g="0.96" b="1"/>
+					<Animations>
+						<AnimationGroup parentKey="AnimSwap">
+							<Alpha change="-1" duration="0" order="1"/>
+							<Alpha change="1" duration="0.4" order="2"/>
+						</AnimationGroup>
+					</Animations>
+				</FontString>
+				<FontString name="$parentReadyTextDescription" parentKey="ReadyTextDescription" inherits="GameFontNormalSmall" text="READY_ARENA_DESCRIPTION_LABEL">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="$parentReadyText" relativePoint="BOTTOM" x="0" y="0" />
+					</Anchors>
+					<Color r="0.8" g="0.96" b="1"/>
+					<Animations>
+						<AnimationGroup parentKey="AnimSwap">
+							<Alpha change="-1" duration="0" order="1"/>
+							<Alpha change="1" duration="0.4" order="2"/>
+						</AnimationGroup>
+					</Animations>
+				</FontString>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentHighlightTexture" parentKey="HighlightTexture" file="Interface\Common\bluemenu-main" alphaMode="ADD" alpha="0.7" hidden="true">
+					<Size x="210" y="56"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0"/>
+					</Anchors>
+					<TexCoords left="0.00390625" right="0.87890625" top="0.59179688" bottom="0.66992188"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture parentKey="Selection" file="Interface\Common\bluemenu-main" alphaMode="ADD" alpha="0.2" hidden="true">
+					<Size x="208" y="54"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="0"/>
+					</Anchors>
+					<TexCoords left="0.00390625" right="0.87890625" top="0.83203125" bottom="0.91015625"/>
+					<Color r="0" g="1" b="0"/>
+					<Animations>
+						<AnimationGroup parentKey="AnimIn">
+							<Alpha change="-1" duration="0" order="1"/>
+							<Alpha change="0.3" duration="0.3" order="2"/>
+						</AnimationGroup>
+						<AnimationGroup parentKey="AnimOut">
+							<Alpha change="0.8" duration="0.2" order="1"/>
+							<Alpha change="-1" duration="0.5" order="2"/>
+							<Scripts>
+								<OnFinished>
+									self:GetParent():SetVertexColor(0, 1, 0)
+									self:GetParent():Hide()
+								</OnFinished>
+							</Scripts>
+						</AnimationGroup>
+					</Animations>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentGlow" parentKey="Glow" inherits="PKBT_ButtonGlowTemplate" alpha="0">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="-12" y="12"/>
+					<Anchor point="BOTTOMRIGHT" x="11" y="-17"/>
+				</Anchors>
+				<Animations>
+					<AnimationGroup parentKey="AlphaAnim" looping="REPEAT">
+						<Alpha duration="0" change="-1" order="1"/>
+						<Alpha duration="1" change="1" order="2" smoothing="OUT_IN"/>
+						<Alpha duration="1" change="-1" order="3" smoothing="IN_OUT"/>
+					</AnimationGroup>
+				</Animations>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, TimerTrackerReadyButtonMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnEvent>
+				self:OnEvent(event, ...)
+			</OnEvent>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+			<OnHide>
+				self:OnHide()
+			</OnHide>
+			<OnEnter>
+				self:OnEnter()
+			</OnEnter>
+			<OnLeave>
+				self:OnLeave()
+			</OnLeave>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+			<OnMouseDown>
+				self:OnMouseDown(button)
+			</OnMouseDown>
+			<OnMouseUp>
+				self:OnMouseUp(button)
+			</OnMouseUp>
+		</Scripts>
+	</CheckButton>
+</Ui>

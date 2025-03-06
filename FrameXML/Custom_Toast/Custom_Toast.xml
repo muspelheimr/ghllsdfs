@@ -1,0 +1,177 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+    <Script file="Custom_Toast.lua"/>
+
+    <Button name="SocialToastTemplate" virtual="true" parent="UIParent" frameStrata="LOW" movable="true" toplevel="true" hidden="true">
+        <Size x="250" y="50"/>
+        <Anchors>
+        	<Anchor point="CENTER" x="0" y="0" />
+        </Anchors>
+        <Animations>
+            <AnimationGroup parentKey="animIn">
+                <Alpha change="-1" duration="0" order="1"/>
+                <Alpha change="1" duration="0.2" order="2"/>
+            </AnimationGroup>
+            <AnimationGroup parentKey="waitAndAnimOut">
+                <Alpha startDelay="4" change="1" duration="0" order="1"/>
+                <Alpha startDelay="4" change="-1" duration="1.5" parentKey="animOut" order="2"/>
+                <Scripts>
+                    <OnFinished>
+						self:GetParent():Hide()
+                    </OnFinished>
+                </Scripts>
+            </AnimationGroup>
+        </Animations>
+        <Backdrop bgFile="Interface\FriendsFrame\UI-Toast-Background" edgeFile="Interface\FriendsFrame\UI-Toast-Border" tile="true">
+            <BackgroundInsets left="6" right="5" top="5" bottom="5"/>
+            <TileSize>
+                <AbsValue val="12"/>
+            </TileSize>
+            <EdgeSize>
+                <AbsValue val="12"/>
+            </EdgeSize>
+        </Backdrop>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture name="$parentIcon" parentKey="Icon" file="Interface\ICONS\INV_Misc_QuestionMark">
+                    <Size x="34" y="34"/>
+                	<Anchors>
+						<Anchor point="LEFT" x="10" y="0" />
+                	</Anchors>
+                </Texture>
+				<FontString name="$parentTitleText" parentKey="TitleText" inherits="FriendsFont_Normal" justifyH="LEFT" justifyV="TOP" maxLines="2">
+					<Size x="180" y="0"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="48" y="-10"/>
+                    </Anchors>
+                    <Color r="0.510" g="0.773" b="1"/>
+                </FontString>
+				<FontString name="$parentBodyText" parentKey="BodyText" inherits="FriendsFont_Small" justifyH="LEFT" justifyV="TOP">
+					<Size x="192" y="0"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeTo="$parentTitleText" relativePoint="BOTTOMLEFT" x="0" y="-6"/>
+                    </Anchors>
+					<Color r="1" g="1" b="1"/>
+                </FontString>
+            </Layer>
+            <Layer level="OVERLAY">
+                <Texture name="$parentGlow" parentKey="glow" file="Interface\FriendsFrame\UI-Toast-Flair" alphaMode="ADD" hidden="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="-1" y="3"/>
+                        <Anchor point="BOTTOMRIGHT" x="1" y="-3"/>
+                    </Anchors>
+                    <Animations>
+                        <AnimationGroup name="$parentAnimIn" parentKey="animIn">
+                            <Alpha change="-1" duration="0" order="1"/>
+                            <Alpha change="1" duration="0.2" order="2"/>
+                            <Alpha change="-1" duration="0.5" order="3"/>
+                            <Scripts>
+                                <OnFinished>
+                                    self:GetParent():Hide()
+                                </OnFinished>
+                            </Scripts>
+                        </AnimationGroup>
+                    </Animations>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Frames>
+			<Button name="$parentCloseButton" parentKey="CloseButton">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-4" y="-3"/>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						self:GetParent():OnEnter()
+					</OnEnter>
+					<OnLeave>
+						self:GetParent():OnLeave()
+					</OnLeave>
+					<OnClick>
+						self:GetParent():Hide()
+						PlaySound("igMainMenuOptionCheckBoxOn")
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\FriendsFrame\UI-Toast-CloseButton-Up"/>
+				<PushedTexture file="Interface\FriendsFrame\UI-Toast-CloseButton-Down"/>
+				<HighlightTexture file="Interface\FriendsFrame\UI-Toast-CloseButton-Highlight" alphaMode="ADD"/>
+			</Button>
+        </Frames>
+        <Scripts>
+            <OnLoad>
+                Mixin(self, SocialToastMixin)
+            </OnLoad>
+            <OnHide>
+                self:OnHide()
+            </OnHide>
+            <OnEnter>
+                self:OnEnter()
+            </OnEnter>
+            <OnLeave>
+                self:OnLeave()
+            </OnLeave>
+			<OnClick>
+				self:OnClick(button)
+			</OnClick>
+        </Scripts>
+    </Button>
+
+    <Frame name="SocialToastAnchorFrame" parent="UIParent" frameStrata="LOW" movable="true" toplevel="true">
+		<Size x="250" y="50"/>
+        <Anchors>
+            <Anchor point="CENTER" x="0" y="0" />
+        </Anchors>
+		<Frames>
+			<Frame name="$parentMoveFrame" parentKey="MoveFrame" toplevel="true" enableMouse="true" setAllPoints="true" hidden="true">
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="$parentBackground" parentKey="Background">
+							<Color r="0" g="1" b="0" a="0.5"/>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormal17" text="TOAST_MOVE_TEXT">
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0" />
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						Mixin(self, SocialToastMoveFrameMixin)
+						self:OnLoad()
+					</OnLoad>
+					<OnShow>
+						self:OnShow()
+					</OnShow>
+					<OnHide>
+						self:OnHide()
+					</OnHide>
+					<OnMouseUp>
+						self:OnMouseUp( button )
+					</OnMouseUp>
+					<OnDragStart>
+						self:OnDragStart()
+					</OnDragStart>
+					<OnDragStop>
+						self:OnDragStop()
+					</OnDragStop>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				Mixin(self, SocialToastSystemMixin)
+				self:OnLoad()
+			</OnLoad>
+			<OnEvent>
+				self:OnEvent(event, ...)
+			</OnEvent>
+			<OnShow>
+				self:OnShow()
+			</OnShow>
+		</Scripts>
+    </Frame>
+</Ui>
